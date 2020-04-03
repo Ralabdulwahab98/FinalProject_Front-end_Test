@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import apiURL from '../../APIconfig';
-
 import { getInfo } from "./decodeToken";
 
 import "./login.css";
-
+import Register from './Register'
 class Login extends Component {
   constructor(props) {
     super(props);
