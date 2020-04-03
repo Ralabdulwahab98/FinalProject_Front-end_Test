@@ -1,8 +1,8 @@
 import apiURL from'../APIconfig';
 import axios from 'axios';
 
-// Get All Ticket
-export const getAllTicket = () => {
+// Get All Service
+export const getAllService = () => {
   return axios.get(`${apiURL}/customer/allTickets`);
 }
 // Get ALl Emp RequestService By cus ID
@@ -14,7 +14,7 @@ export const getReceivedServices = (id) => {
     return axios.get(`${apiURL}/customer/ReceivedService/${id}`);
   } 
 //close Ticket 
-export const closeTicket = (id) => {
+export const closeService = (id) => {
     return axios({
       method: 'patch',
       url: apiURL + `/UpdateTicket/${id}`,

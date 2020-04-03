@@ -39,10 +39,10 @@ class Login extends Component {
 
         if (jwt1 === true) {
           console.log("a:", jwt1);
-          this.props.history.push("/home");
+          this.props.history.push("/WorkerHeader");
         } else if (jwt1 === false) {
           console.log("B:", jwt1);
-          this.props.history.push("/home");
+          this.props.history.push("/CustomerHeader");
         } else if (jwt1 === undefined) {
           console.log("b: ", jwt1);
           this.props.history.push("/");
