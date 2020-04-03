@@ -1,13 +1,12 @@
 import React from 'react';
 import apiURL from'./APIconfig';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
-
+import CustomerHome from '../src/components/home/CustomerHome'
 // Components
 import Login from './components/login/Login'
 // import AdminHeader from './components/Header/AdminHeader'
 // import EmpHeader from './components/Header/EmpHeader'
 import AuthComponent from './components/login/AuthenticatedComponent';
-
 export default class App extends React.Component {
 
 // **  Component Tree **
@@ -45,7 +44,9 @@ export default class App extends React.Component {
       <>
       <BrowserRouter>
      <Switch>
-      <Route path={'/'} exact component={Login}/>   
+      <Route path={'/'} exact component={Login}/>  
+      <Route path={'/home'} component = {CustomerHome} />
+
     <AuthComponent>
       {/* <Route path={'/EmpHeader'} component={EmpHeader}/>
       <Route path={'/AdminHeader'} component={AdminHeader}/> */}
