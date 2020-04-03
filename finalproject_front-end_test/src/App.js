@@ -4,8 +4,8 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import CustomerHome from '../src/components/home/CustomerHome'
 // Components
 import Login from './components/login/Login'
-// import CustomerHeader from './components/Header/AdminHeader'
-// import EmpHeader from './components/Header/EmpHeader'
+import CustomerHeader from './components/Header/AdminHeader'
+import WorkerHeader from './components/Header/WorkerHeader';
 import AuthComponent from './components/login/AuthenticatedComponent';
 export default class App extends React.Component {
 
@@ -48,8 +48,8 @@ export default class App extends React.Component {
       <Route path={'/home'} component = {CustomerHome} />
 
     <AuthComponent>
-      {/* <Route path={'/CustomerHome'} component={EmpHeader}/>
-      <Route path={'/AdminHeader'} component={AdminHeader}/> */}
+    <Route path={'/CustomerHeader'} component={CustomerHeader}/> 
+      <Route path={'/WorkerHeader'} component={WorkerHeader}/>
       </AuthComponent>
         </Switch>
       </BrowserRouter>
