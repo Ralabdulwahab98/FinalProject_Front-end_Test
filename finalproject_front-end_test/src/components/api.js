@@ -5,13 +5,13 @@ import axios from 'axios';
 export const getAllTicket = () => {
   return axios.get(`${apiURL}/customer/allTickets`);
 }
-// Get ALl Emp SendTickets By Emp ID
-export const getEmpSendTickets = (id) => {
-    return axios.get(`${apiURL}/customer/SendTickets/${id}`);
+// Get ALl Emp RequestService By cus ID
+export const getRequestService = (id) => {
+    return axios.get(`${apiURL}/customer/RequestService/${id}`);
   } 
-// Get ALl Emp ReceivedTickets By Emp ID
-export const getReceivedTickets = (id) => {
-    return axios.get(`${apiURL}/customer/ReceivedTickets/${id}`);
+// Get ALl Customer ReceivedTickets By cus ID
+export const getReceivedServices = (id) => {
+    return axios.get(`${apiURL}/customer/ReceivedService/${id}`);
   } 
 //close Ticket 
 export const closeTicket = (id) => {
@@ -59,14 +59,14 @@ export const AddNewTicket = (req,id) => {
   });
 }
 //Update Ticket 
-export const UpdateTicket = (req,id) => {
+export const UpdateService = (req,id) => {
   return axios({
     method: 'patch',
-    url: apiURL + `/UpdateTicket/${id}`,
+    url: apiURL + `/UpdateService/${id}`,
     data:{
-      TicketType:req.TicketType,
-      TicketDescription: req.TicketDescription,
-      TicketState: req.TicketState,
+      ServiceType:req.ServiceType,
+      ServiceDescription: req.ServiceDescription,
+      ServiceState: req.ServiceState,
     }
     
   })
