@@ -1,6 +1,7 @@
 import React from "react";
 import "./header.css";
 import ReceivedServices from "../ReceivedServices/ReceivedServices";
+import { Switch, Route, BrowserRouter, Link } from "react-router-dom";
  export default class WorkerHeader extends React.Component{
   constructor(props){
     super(props);
@@ -16,105 +17,63 @@ import ReceivedServices from "../ReceivedServices/ReceivedServices";
  
  render(){
    return(
-     <div>
-<section class="menu menu--circle">
-  <input type="checkbox" id="menu__active"/>
-  <label for="menu__active" class="menu__active">
-    <div class="menu__toggle">
-      <div class="icon">
-        <div class="hamburger"></div>
-      </div>
-    </div>
-    <input type="radio" name="arrow--up" id="degree--up-0"/>
-    <input type="radio" name="arrow--up" id="degree--up-1" />
-    <input type="radio" name="arrow--up" id="degree--up-2" />
-    <div class="menu__listings">
-      <ul class="circle">
-        <li>
-          <div class="placeholder">
-            <div class="upside">
-              <a href="#" class="button"><i class="fa fa-user"></i></a>
+    <BrowserRouter>
+        {/* <Switch> */}
+          <div>
+            <div className="big-div">
+              <div id="div1">
+                <div id="rock1"></div>
+                <div id="rock2"></div>
+                <div id="rock3"></div>
+                <div id="rock4"></div>
+                <div id="rock5"></div>
+                <div id="rock6"></div>
+                <div id="rock7"></div>
+                <div id="rock8"></div>
+                <div id="diva1">
+                  <Link to="/CustomerHeader">
+                    <img
+                      id="img1"
+                      src="https://t4.ftcdn.net/jpg/00/97/00/07/240_F_97000769_R4zepLTgmf8G22W7G2o8JA1HeiVK2CkK.jpg"
+                    />
+                  </Link>
+                  <div id="divaa1">
+                    {/* <Link to="/Profile"> */}
+                      <img
+                        id="img2"
+                        src="https://library.kissclipart.com/20180904/ese/kissclipart-user-icon-png-clipart-computer-icons-user-66fe7db07b02eb73.jpg"
+                      />
+                    {/* </Link> */}
+                  </div>
+                  <div id="divaa2">
+                    <Link to="/CustomerHeader/RequestServices">
+                      <img
+                        id="img3"
+                        src="https://cdn3.iconfinder.com/data/icons/care-4/100/Service-512.png"
+                      />
+                    </Link>
+                  </div>
+                  <div id="divaa3">
+                    <Link onClick={e => this.logOut(e)}>
+                      <img
+                        id="img4"
+                        src="https://cdn2.iconfinder.com/data/icons/picons-essentials/57/logout-512.png"
+                      />
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            {/* <Route path={'/CustomerHeader/RequestServices'} component = {RequestServices} /> */}
+            {/* <RequestServices /> */}
           </div>
-        </li>
-        <li>
-          <div class="placeholder">
-            <div class="upside">
-              <a href="#" class="button"><i class="fa fa-sign-out"></i></a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="placeholder">
-            <div class="upside">
-              <a href="#">&nbsp</a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="placeholder">
-            <div class="upside">
-              <a href="#" class="button"><i class="fa fa-commenting"></i></a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="placeholder">
-            <div class="upside">
-              <a href="#" class="button"><i class="fa fa-trash"></i></a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="placeholder">
-            <div class="upside">
-              <a href="#" class="button"><i class="fa fa-battery-4"></i></a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="placeholder">
-            <div class="upside">
-              <a href="#" class="button"><i class="fa fa-calendar"></i></a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="placeholder">
-            <div class="upside">
-              <a href="#" class="button"><i class="fa fa-cloud"></i></a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="placeholder">
-            <div class="upside">
-              <a href="#" class="button"><i class="fa fa-wifi"></i></a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="placeholder">
-            <div class="upside">
-              <a href="#" class="button"><i class="fa fa-envelope-o"></i></a>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="menu__arrow menu__arrow--top">
-      <ul>
-        <li>
-          <label for="degree--up-0"><div class="arrow"></div></label>
-          <label for="degree--up-1"><div class="arrow"></div></label>
-          <label for="degree--up-2"><div class="arrow"></div></label>
-        </li>
-      </ul>
-    </div>
-  </label>
-</section>
-<ReceivedServices/>
-</div>
+           <Route
+            path="/CustomerHeader/RequestServices"
+            render={() => <ReceivedServices  />}
+          />
+        {/* </Switch> */}
+      </BrowserRouter> 
    );
  }
 }
