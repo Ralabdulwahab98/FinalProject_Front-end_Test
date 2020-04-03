@@ -53,7 +53,7 @@ export default class Register extends Component {
 
             <div>
 
-                <form className="login" onSubmit={e => this.formSubmit(e)} >
+                <form className="login" onSubmit={e => this.submit(e)} >
                     <input
                         type="text"
                         placeholder="FullName"
@@ -66,7 +66,7 @@ export default class Register extends Component {
                         placeholder="Email"
                         name="Email"
                         onChange={e => this.change(e)}
-                        value={this.state.Username}
+                        value={this.state.Email}
                     />
                     <input
                         type="password"
@@ -90,8 +90,7 @@ export default class Register extends Component {
                         value={this.state.Phone}
                     />
                     <br></br>
-                    <button
-                        type="submit" >Register</button>
+                    <button type="submit" >Register</button>
                 </form>
                 <h2>&nbsp;</h2>
 

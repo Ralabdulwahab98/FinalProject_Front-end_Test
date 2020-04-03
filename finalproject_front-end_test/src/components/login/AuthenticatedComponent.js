@@ -15,7 +15,7 @@ class AuthenticatedComponent extends Component {
 
   componentDidMount() {
     const jwt = getJwt();
-    let jwt1 = getInfo().data.admin;
+    let jwt1 = getInfo().data.Worker;
     // this function is responsible to check if the
     // token is equal to employee or adamant after
     // decrypting that token

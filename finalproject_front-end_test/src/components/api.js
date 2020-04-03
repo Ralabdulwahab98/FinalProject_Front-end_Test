@@ -42,18 +42,18 @@ export const AddNewCustomer = req => {
         password: req.password,
         Phone: req.empPhone,
     }
-    
   })
 }
+
 //Add new Tickect 
-export const AddNewTicket = (req,id) => {
+export const AddNewService = (req,id) => {
   return axios({
     method: 'POST',
     url: apiURL + `/${id}`,
     data:{
-      TicketType:req.TicketType,
-      TicketDescription: req.TicketDescription,
-      TicketState: req.TicketState,
+      ServiceType: req.ServiceType,
+      ServiceDescription:  req.ServiceDescription,
+      ServiceState: "open",
     }
     
   });

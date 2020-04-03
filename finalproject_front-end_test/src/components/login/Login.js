@@ -35,14 +35,14 @@ class Login extends Component {
       .then(res => {
         console.warn("res", res);
         localStorage.setItem("currentUser", res.data.token);
-        let jwt1 = getInfo().data.admin;
+        let jwt1 = getInfo().data.Worker;
 
         if (jwt1 === true) {
           console.log("a:", jwt1);
-          this.props.history.push("/AdminHeader");
+          this.props.history.push("/home");
         } else if (jwt1 === false) {
           console.log("B:", jwt1);
-          this.props.history.push("/EmpHeader");
+          this.props.history.push("/home");
         } else if (jwt1 === undefined) {
           console.log("b: ", jwt1);
           this.props.history.push("/");
