@@ -4,7 +4,7 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import CustomerHome from '../src/components/home/CustomerHome'
 // Components
 import Login from './components/login/Login'
-import CustomerHeader from './components/Header/AdminHeader'
+import CustomerHeader from './components/Header/CustomerHeader'
 import WorkerHeader from './components/Header/WorkerHeader';
 import AuthComponent from './components/login/AuthenticatedComponent';
 export default class App extends React.Component {

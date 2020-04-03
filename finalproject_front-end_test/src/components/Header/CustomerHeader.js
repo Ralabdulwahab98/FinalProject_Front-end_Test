@@ -2,6 +2,7 @@ import React from "react";
 import "./header.css";
 import RequestServices from "../RequestServices/RequestServices";
 import { Switch, Route, BrowserRouter, Link } from "react-router-dom";
+import CustomerHome from "../home/CustomerHome";
 export default class CustomerHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -28,7 +29,7 @@ export default class CustomerHeader extends React.Component {
             <div id="rock7"></div>
             <div id="rock8"></div>
             <div id="diva1">
-              <Link to="/CustomerHeader">
+              <Link to="/home">
                 <img
                   id="img1"
                   src="https://t4.ftcdn.net/jpg/00/97/00/07/240_F_97000769_R4zepLTgmf8G22W7G2o8JA1HeiVK2CkK.jpg"
@@ -71,6 +72,12 @@ export default class CustomerHeader extends React.Component {
           path="/CustomerHeader/RequestServices"
           render={() => <RequestServices />}
         />
+          <Route
+          path="/home"
+          render={() => <CustomerHome/>}
+        />
+        
+        
         {/* </Switch> */}
       </BrowserRouter>
     );

@@ -103,8 +103,8 @@ background-color: red;
   position:absolute;
   left:calc(50% - 300px);
   top:calc(20% - 150px);
-  width:600px;
-  height:100px;
+  width:630px;
+  height:130px;
   border:20px solid rgb(60, 60, 60);
   border-radius:100px;
   min-width: -100px;
@@ -123,7 +123,7 @@ background-color: red;
   left:15px;
   top:15px;
   width:60px;
-  margin-right:500px;
+  margin-right:490px;
 }
 #img2{
   position:absolute;
