@@ -30,17 +30,17 @@ export const deleteTicket = (id) => {
       url: apiURL + `/DeleteTicket/${id}`,
     })
   }  
-  //Add new Employee
-export const AddNewEmployee = req => {
+  //Add new Customer
+export const AddNewCustomer = req => {
   return axios({
     method: 'POST',
     url: apiURL + '/customer/register',
     data:{
-      empFullName:req.empFullName,
+        FullName: req.FullName,
         email: req.email,
-        empUsername:req.empUsername,
+        Username:req.Username,
         password: req.password,
-        empPhone: req.empPhone,
+        Phone: req.empPhone,
     }
     
   })
