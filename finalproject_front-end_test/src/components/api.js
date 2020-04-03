@@ -3,15 +3,15 @@ import axios from 'axios';
 
 // Get All Ticket
 export const getAllTicket = () => {
-  return axios.get(`${apiURL}/emp/allTickets`);
+  return axios.get(`${apiURL}/customer/allTickets`);
 }
 // Get ALl Emp SendTickets By Emp ID
 export const getEmpSendTickets = (id) => {
-    return axios.get(`${apiURL}/emp/SendTickets/${id}`);
+    return axios.get(`${apiURL}/customer/SendTickets/${id}`);
   } 
 // Get ALl Emp ReceivedTickets By Emp ID
 export const getReceivedTickets = (id) => {
-    return axios.get(`${apiURL}/emp/ReceivedTickets/${id}`);
+    return axios.get(`${apiURL}/customer/ReceivedTickets/${id}`);
   } 
 //close Ticket 
 export const closeTicket = (id) => {
@@ -34,7 +34,7 @@ export const deleteTicket = (id) => {
 export const AddNewEmployee = req => {
   return axios({
     method: 'POST',
-    url: apiURL + '/emp/register',
+    url: apiURL + '/customer/register',
     data:{
       empFullName:req.empFullName,
         email: req.email,

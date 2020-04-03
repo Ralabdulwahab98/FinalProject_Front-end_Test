@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import apiURL from'../../APIconfig';
+import apiURL from '../../APIconfig';
 
 import { getInfo } from "./decodeToken";
 
@@ -11,7 +11,7 @@ class Login extends Component {
     super(props);
 
     this.state = {
-      empUsername: "",
+      Username: "",
       password: ""
     };
 
@@ -29,8 +29,8 @@ class Login extends Component {
     e.preventDefault();
 
     axios
-      .post(`${apiURL}/emp/login`, {
-        empUsername: this.state.empUsername,
+      .post(`${apiURL}/customer/login`, {
+        Username: this.state.Username,
         password: this.state.password
       })
       .then(res => {
@@ -57,20 +57,18 @@ class Login extends Component {
   }
 
   render() {
-  
+
     return (
-      
-      <div className="container" >
-        <div className="top"></div>
-        <div className="bottom"></div>
-        <div className="center">
-          <h2>Please Sign In</h2>
-          <form onSubmit={e => this.submit(e)}>
-            <input
+
+
+      <div>
+
+        <form className="login" onSubmit={e => this.submit(e)} >
+        <input
               type="text"
-              name="empUsername"
+              name="Username"
               onChange={e => this.change(e)}
-              value={this.state.empUsername}
+              value={this.state.Username}
             />
             <input
               type="password"
@@ -79,11 +77,18 @@ class Login extends Component {
               onChange={e => this.change(e)}
               value={this.state.password}
             />
-            <button type="submit">Submit</button>
-          </form>
-          <h2>&nbsp;</h2>
-        </div>
+          <button
+            type="submit" >Login</button>
+            <br></br>
+           <button>Register</button>
+        </form>
+        <h2>&nbsp;</h2>
+
       </div>
+
+
+
+
     );
   }
 }
