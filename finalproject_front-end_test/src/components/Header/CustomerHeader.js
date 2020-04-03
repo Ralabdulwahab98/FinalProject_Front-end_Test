@@ -1,8 +1,18 @@
 import React from "react";
 import "./header.css";
+import RequestServices from "../RequestServices/RequestServices";
  export default class CustomerHeader extends React.Component{
+constructor(props){
+  super(props);
+  this.state={
+  };
+}
 
- 
+logOut = e => {
+  e.preventDefault();
+  this.props.history.push('/')
+  localStorage.clear('currentUser')
+}
  render(){
    return(
      <div>
@@ -43,7 +53,7 @@ import "./header.css";
         <li>
           <div class="placeholder">
             <div class="upside">
-              <a href="#" class="button"><i class="fa fa-commenting"></i></a>
+              <button onClick={e => this.logOut(e)} class="button"><i class="fa fa-commenting"></i></button>
             </div>
           </div>
         </li>
@@ -102,7 +112,7 @@ import "./header.css";
     </div>
   </label>
 </section>
-
+<RequestServices/>
 </div>
    );
  }

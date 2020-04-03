@@ -1,7 +1,18 @@
 import React from "react";
 import "./header.css";
+import ReceivedServices from "../ReceivedServices/ReceivedServices";
  export default class WorkerHeader extends React.Component{
-
+  constructor(props){
+    super(props);
+    this.state={
+    };
+  }
+  
+  logOut = e => {
+    e.preventDefault();
+    this.props.history.push('/')
+    localStorage.clear('currentUser')
+  }
  
  render(){
    return(
@@ -102,7 +113,7 @@ import "./header.css";
     </div>
   </label>
 </section>
-
+<ReceivedServices/>
 </div>
    );
  }
