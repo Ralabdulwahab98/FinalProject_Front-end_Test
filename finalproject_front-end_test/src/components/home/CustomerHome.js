@@ -41,7 +41,7 @@ export default class CustomerHome extends Component {
           </div>
           <div className="righter"
           onClick= {e=>this.togglehandler(e)}>
-            <div className="text">Builder</div>
+            <div className="text">Carpenter</div>
           </div>
         </div>
       </div>    
