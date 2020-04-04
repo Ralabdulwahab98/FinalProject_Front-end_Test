@@ -8,6 +8,8 @@ import Login from './components/login/Login'
 import CustomerHeader from './components/Header/CustomerHeader'
 import WorkerHeader from './components/Header/WorkerHeader';
 import AuthComponent from './components/login/AuthenticatedComponent';
+import Register from './components/login/Register'
+
 export default class App extends React.Component {
 
   constructor(props) {
@@ -52,12 +54,15 @@ export default class App extends React.Component {
       <>
       <BrowserRouter>
      <Switch>
-      <Route path={'/'} exact component={() => <Login toggle={this.state.toggle} /> }/> 
-      <Route path={'/home'} component = {CustomerHome} />
-
+      <Route path={'/'} exact component={() => <Login /> }/> 
+      <Route
+          path="/register"
+          render={() => <Register  history={this.props.history}  />}
+        />
     <AuthComponent>
     <Route path={'/CustomerHeader'} component={CustomerHeader}/> 
       <Route path={'/WorkerHeader'} component={WorkerHeader}/>
+      <Route path={'/home'} component = {CustomerHome} />
       </AuthComponent>
         </Switch>
       </BrowserRouter>

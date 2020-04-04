@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import apiURL from '../../APIconfig';
 import { getInfo } from "./decodeToken";
-import { Switch, Route, BrowserRouter, Link } from "react-router-dom";
+import { Route, BrowserRouter, Link } from "react-router-dom";
 import "./login.css";
 import Register from './Register'
 class Login extends Component {
@@ -36,7 +36,6 @@ class Login extends Component {
         console.warn("res", res);
         localStorage.setItem("currentUser", res.data.token);
         let jwt1 = getInfo().data.Worker;
-
         if (jwt1 === true) {
           console.log("a:", jwt1);
           this.props.history.push("/WorkerHeader");
@@ -47,7 +46,6 @@ class Login extends Component {
           console.log("b: ", jwt1);
           this.props.history.push("/");
         }
-
         return res;
       })
       .catch(error => {
@@ -60,11 +58,8 @@ class Login extends Component {
     return (
       <BrowserRouter>
       <div>
-        {/* {this.props.toggle === true?
-        <> */}
-        <form className="login" onSubmit={e => this.submit(e)} >
-          
-          
+    
+        <form className="login" onSubmit={e => this.submit(e)} >     
         <input
               type="text"
               name="Username"
@@ -81,16 +76,14 @@ class Login extends Component {
           <button
             type="submit" >Login</button>
             <br></br>
-            <Link to="/register">
-              <button>Register</button>
-            </Link> 
+            <button><Link to="/register">Register </Link> </button>
+            
+        
              
              
         </form>
         <h2>&nbsp;</h2>
-        {/* </> :
-             <Register/>
-             } */}
+
       </div>
       <Route
           path="/register"
