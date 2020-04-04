@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { AddNewCustomer } from '../api';
-import { getInfo } from "./decodeToken";
-
+// import { useHistory } from "react-router-dom";
+// import PropTypes from 'prop-types';
+// import { withRouter } from "react-router-dom";
+import Back from "./Back";
 import "./login.css";
-
 export default class Register extends Component {
     constructor(props) {
         super(props);
@@ -14,21 +15,37 @@ export default class Register extends Component {
             password: "",
             Email: "",
             Phone: "",
+            UserType: "",
+            Worker: false,
         };
 
         this.change = this.handleChange.bind(this);
         this.submit = this.formSubmit.bind(this);
+        // this.goBack = this.goBack.bind(this)
     }
-
-    handleChange = event =>
+    WorkerToggle(e) {
+        e.preventDefault();
+        this.setState({
+            Worker: true,
+        })
+    }
+    CustomerToggle(e) {
+        e.preventDefault();
+        this.setState({
+            Worker: false,
+            UserType: "Customer",
+        })
+    }
+    handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
         });
+    }
 
     addCustomer = Customer => {
         // Make an axios request
         console.log(" addCustomer ==> ", Customer);
-        let mId = getInfo().data._id
+        // let mId = getInfo().data._id
         AddNewCustomer(Customer)
             .then(response => {
                 // Alert Massge 
@@ -41,19 +58,23 @@ export default class Register extends Component {
 
     formSubmit = e => {
         const newCustomer = this.state;
-        console.log(" newCustomer ==> " , newCustomer);
+        console.log(" newCustomer ==> ", newCustomer);
         e.preventDefault();
         this.addCustomer(newCustomer);
+        // BrowserHistory.goBack
+        // console.log(`history  ${this.props.history}`);
+        // this.props.history.goBack();
     };
 
     render() {
-
+        // let history = useHistory();
         return (
-
-
+            // <BrowserRouter>
             <div>
 
-                <form className="login" onSubmit={e => this.submit(e)} >
+                <form className="login" onSubmit={e => this.submit(e)}>
+                    <button type="button" onClick={e => this.CustomerToggle(e)}>Customer</button>
+                    <button type="button" onClick={e => this.WorkerToggle(e)}>Worker</button>
                     <input
                         type="text"
                         placeholder="FullName"
@@ -89,17 +110,38 @@ export default class Register extends Component {
                         onChange={e => this.change(e)}
                         value={this.state.Phone}
                     />
+                    {this.state.Worker === true ?
+                        <>
+                         <select
+                        name="UserType"
+                        type="text"
+                        onChange={this.change}>
+
+                        <option value={this.state.UserType = "Electrician"}>Electrician</option>
+                        <option value={this.state.UserType = "Plumber"}>Plumber</option>
+                        <option  value={this.state.UserType = "Services"}>Services</option>
+                        <option  value={this.state.UserType = "Painter"}>Painter</option>
+                        <option  value={this.state.UserType = "Builder"}>Builder</option>
+                  
+                      </select>  
+                        </>
+                        :
+                        <> </>
+                    }
                     <br></br>
-                    <button type="submit" >Register</button>
+                    <Back />
                 </form>
                 <h2>&nbsp;</h2>
+                
 
             </div>
 
-
-
-
         );
     }
+
+
 }
 
+
+
+// export default {Register}

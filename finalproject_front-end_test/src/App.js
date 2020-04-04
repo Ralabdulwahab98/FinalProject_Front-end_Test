@@ -3,11 +3,19 @@ import apiURL from'./APIconfig';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import CustomerHome from '../src/components/home/CustomerHome'
 // Components
+import "./components/login/login.css";
 import Login from './components/login/Login'
 import CustomerHeader from './components/Header/CustomerHeader'
 import WorkerHeader from './components/Header/WorkerHeader';
 import AuthComponent from './components/login/AuthenticatedComponent';
 export default class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      toggle: true,
+    };}
 
 // **  Component Tree **
       // 0 -Login
@@ -39,12 +47,12 @@ export default class App extends React.Component {
             //          - TicketForm => display form to add new ticket
 
   render(){
-    console.log('MY API :  ',apiURL);
+    // console.log('MY API :  ',apiURL);
     return (
       <>
       <BrowserRouter>
      <Switch>
-      <Route path={'/'} exact component={Login}/>  
+      <Route path={'/'} exact component={() => <Login toggle={this.state.toggle} /> }/> 
       <Route path={'/home'} component = {CustomerHome} />
 
     <AuthComponent>
