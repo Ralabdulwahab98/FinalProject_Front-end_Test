@@ -12,6 +12,7 @@ body {
     font-weight: 300;
   }
   .all {
+    margin-top: 150px;
     display: flex;
     perspective: 10px;
     transform: perspective(300px) rotateX(20deg);
