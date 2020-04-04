@@ -1,7 +1,7 @@
 import React from "react";
 import "./header.css";
 import ReceivedServices from "../ReceivedServices/ReceivedServices";
-import CustomerHome from '../home/CustomerHome';
+import CustomerHome from '../home/CustomerHome'
 import { Switch, Route, BrowserRouter, Link } from "react-router-dom";
 import WorkerHome from "../home/WorkerHome";
  export default class WorkerHeader extends React.Component{

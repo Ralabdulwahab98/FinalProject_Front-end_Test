@@ -90,7 +90,7 @@
     right: 0;
   }
   
-  .form  input,  .form  fieldset,  .form button {
+  .form  input,  .form  fieldset,  .form button , .form select{
     border: none;
     outline: none;
     font: 16px Roboto;
@@ -100,13 +100,13 @@
     display: block;
   }
   
-  .form label {
+  .form label select{
     display: block;
     color: #01BCE6;
     font: 500 13px Roboto;
   }
   
-  .form input {
+  .form input select{
     background: rgba(255, 255, 255, 0.18);
     padding: 8px 12px;
     margin: 5px 5px 5px 0;
@@ -114,7 +114,7 @@
     color: #FFF;
   }
 
-  .name input {
+  .name input select{
     width: 100%;
   }
  
