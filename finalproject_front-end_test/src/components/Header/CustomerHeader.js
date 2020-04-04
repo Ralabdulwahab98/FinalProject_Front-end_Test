@@ -1,7 +1,7 @@
 import React from "react";
 import "./header.css";
 import RequestServices from "../RequestServices/RequestServices";
-import { Switch, Route, BrowserRouter, Link } from "react-router-dom";
+import { Route, BrowserRouter, Link } from "react-router-dom";
 import CustomerHome from "../home/CustomerHome";
 export default class CustomerHeader extends React.Component {
   constructor(props) {
@@ -33,7 +33,7 @@ export default class CustomerHeader extends React.Component {
                 <img
                   id="img1"
                   src="https://t4.ftcdn.net/jpg/00/97/00/07/240_F_97000769_R4zepLTgmf8G22W7G2o8JA1HeiVK2CkK.jpg"
-                />
+                  alt=""/>
               </Link>
               <div id="divaa1">
                 {/* <Link to="/Profile"> */}
@@ -43,7 +43,7 @@ export default class CustomerHeader extends React.Component {
                 <img
                   id="img2"
                   src="https://www.freeiconspng.com/uploads/account-profile-user-icon--icon-search-engine-10.png"
-                />
+                  alt=""/>
                 {/* </Link> */}
               </div>
               <div id="divaa2">
@@ -51,7 +51,7 @@ export default class CustomerHeader extends React.Component {
                   <img
                     id="img3"
                     src="https://cdn3.iconfinder.com/data/icons/care-4/100/Service-512.png"
-                  />
+                    alt=""/>
                 </Link>
               </div>
               <div id="divaa3">
@@ -59,7 +59,7 @@ export default class CustomerHeader extends React.Component {
                   <img
                     id="img4"
                     src="https://cdn2.iconfinder.com/data/icons/picons-essentials/57/logout-512.png"
-                  />
+                    alt=""/>
                 </Link>
               </div>
             </div>

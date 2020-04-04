@@ -12,6 +12,7 @@ body {
     font-weight: 300;
   }
   .all {
+    margin-top: 150px;
     display: flex;
     perspective: 10px;
     transform: perspective(300px) rotateX(20deg);
@@ -89,7 +90,7 @@ body {
   }
   .righter {
     transform: translateX(60px) translateZ(-50px) rotateY(10deg);
-    background-image: url(../../images/cons.png);
+    background-image: url(../../images/Carpenter.png);
   }
   .explainer {
     font-weight: 300;

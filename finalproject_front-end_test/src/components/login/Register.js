@@ -1,3 +1,4 @@
+/* eslint-disable react/no-direct-mutation-state */
 import React, { Component } from "react";
 import { AddNewCustomer } from '../api';
 // import { useHistory } from "react-router-dom";

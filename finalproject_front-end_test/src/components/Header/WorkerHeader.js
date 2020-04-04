@@ -1,8 +1,8 @@
+/* eslint-disable react/jsx-no-undef */
 import React from "react";
 import "./header.css";
 import ReceivedServices from "../ReceivedServices/ReceivedServices";
-import CustomerHome from '../home/CustomerHome'
-import { Switch, Route, BrowserRouter, Link } from "react-router-dom";
+import { Route, BrowserRouter, Link } from "react-router-dom";
 import WorkerHome from "../home/WorkerHome";
  export default class WorkerHeader extends React.Component{
   constructor(props){
@@ -37,14 +37,14 @@ import WorkerHome from "../home/WorkerHome";
                     <img
                       id="img1"
                       src="https://t4.ftcdn.net/jpg/00/97/00/07/240_F_97000769_R4zepLTgmf8G22W7G2o8JA1HeiVK2CkK.jpg"
-                    />
+                      alt=""/>
                   </Link>
                   <div id="divaa1">
                     {/* <Link to="/Profile"> */}
                       <img
                         id="img2"
                         src="https://library.kissclipart.com/20180904/ese/kissclipart-user-icon-png-clipart-computer-icons-user-66fe7db07b02eb73.jpg"
-                      />
+                        alt=""/>
                     {/* </Link> */}
                   </div>
                   <div id="divaa2">
@@ -52,7 +52,7 @@ import WorkerHome from "../home/WorkerHome";
                       <img
                         id="img3"
                         src="https://cdn3.iconfinder.com/data/icons/care-4/100/Service-512.png"
-                      />
+                        alt=""/>
                     </Link>
                   </div>
                   <div id="divaa3">
@@ -60,7 +60,7 @@ import WorkerHome from "../home/WorkerHome";
                       <img
                         id="img4"
                         src="https://cdn2.iconfinder.com/data/icons/picons-essentials/57/logout-512.png"
-                      />
+                        alt=""/>
                     </Link>
                   </div>
                 </div>
