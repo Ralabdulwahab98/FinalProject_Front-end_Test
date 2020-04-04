@@ -1,9 +1,9 @@
 import apiURL from'../APIconfig';
 import axios from 'axios';
 
-// Get All Service
-export const getAllService = () => {
-  return axios.get(`${apiURL}/customer/allTickets`);
+// Find all service depend on WorkerId
+export const WorkerService = (id) =>{
+  return axios.get(`${apiURL}/service/${id}`);
 }
 // Get ALl Emp RequestService By cus ID
 export const getRequestService = (id) => {
@@ -71,3 +71,4 @@ export const UpdateService = (req,id) => {
     
   })
 }
+
