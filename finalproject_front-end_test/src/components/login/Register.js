@@ -73,8 +73,8 @@ export default class Register extends Component {
             <div>
 
                 <form className="login" onSubmit={e => this.submit(e)}>
-                    <button type="button" onClick={e => this.CustomerToggle(e)}>Customer</button>
-                    <button type="button" onClick={e => this.WorkerToggle(e)}>Worker</button>
+                    <button className="toggle" type="button" onClick={e => this.CustomerToggle(e)}>Customer</button>
+                    <button className="toggle" type="button" onClick={e => this.WorkerToggle(e)}>Worker</button>
                     <input
                         type="text"
                         placeholder="FullName"
@@ -111,37 +111,33 @@ export default class Register extends Component {
                         value={this.state.Phone}
                     />
                     {this.state.Worker === true ?
-                        <>
-                         <select
-                        name="UserType"
-                        type="text"
-                        onChange={this.change}>
+                        <div className="dropdown">
+                            <select
+                                className="dropbtn"
+                                name="UserType"
+                                type="text"
+                                onChange={this.change}>
 
-                        <option value={this.state.UserType = "Electrician"}>Electrician</option>
-                        <option value={this.state.UserType = "Plumber"}>Plumber</option>
-                        <option  value={this.state.UserType = "Services"}>Services</option>
-                        <option  value={this.state.UserType = "Painter"}>Painter</option>
-                        <option  value={this.state.UserType = "Builder"}>Builder</option>
-                  
-                      </select>  
-                        </>
-                        :
-                        <> </>
+                                <option className="dropdown-content" value={this.state.UserType = "Electrician"}>Electrician</option>
+                                <option className="dropdown-content" value={this.state.UserType = "Plumber"}>Plumber</option>
+                                <option className="dropdown-content" value={this.state.UserType = "Painter"}>Painter</option>
+                                <option className="dropdown-content" value={this.state.UserType = "Builder"}>Builder</option>
+
+                            </select>
+
+                        </div> :
+                        <br></br>
                     }
                     <br></br>
                     <Back />
+
+
                 </form>
                 <h2>&nbsp;</h2>
-                
+
 
             </div>
 
         );
     }
-
-
 }
-
-
-
-// export default {Register}

@@ -63,12 +63,12 @@ body {
 .login > button {
   font-family: "Asap", sans-serif;
   cursor: pointer;
-  color: rgb(165, 163, 163);
+  color: rgb(135, 106, 151);
   font-size: 16px;
   text-transform: uppercase;
   width: 80px;
   border: 0;
-  padding: 10px 0;
+  /* padding: 10px 0; */
   margin-top: 10px;
   margin-left: -5px;
   border-radius: 5px;
@@ -120,4 +120,74 @@ a {
   right: 10px;
   bottom: 10px;
   font-size: 12px;
+}
+
+
+/* ************************************************************* */
+
+.login > .toggle{
+  margin-left: 50px;
+  color: rgb(135, 106, 151);
+  text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.2);
+}
+
+.dropbtn {
+  font-family: "Asap", sans-serif;
+  cursor: pointer;
+  color: rgb(135, 106, 151);
+  font-size: 12px;
+  text-transform: uppercase;
+  width: 80px;
+  border: 0;
+  margin-bottom: 30px;
+  margin-top: 5px;
+  margin-left: -5px;
+  border-radius: 5px;
+  -webkit-transition: background-color 300ms;
+  -moz-transition: background-color 300ms;
+  transition: background-color 300ms;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content input {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: "Asap", sans-serif;
+  display: block;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+  width: 100%;
+  border: 0;
+  padding: 10px 10px;
+  margin: 15px -10px;
+  cursor: pointer;
+
+}
+
+
+.dropdown-content input:hover { background-color:  rgb(135, 106, 151);}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  background-color:  rgb(135, 106, 151);
+}
+
+.dropdown:hover .dropbtn {
+  color: rgb(189, 166, 201);
+  background-color:  rgb(135, 106, 151);
 }
