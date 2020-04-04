@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import apiURL from '../../APIconfig';
 import { getInfo } from "./decodeToken";
-
+import { Switch, Route, BrowserRouter, Link } from "react-router-dom";
 import "./login.css";
 import Register from './Register'
 class Login extends Component {
@@ -58,11 +58,13 @@ class Login extends Component {
   render() {
 
     return (
-
-
+      <BrowserRouter>
       <div>
-
+        {/* {this.props.toggle === true?
+        <> */}
         <form className="login" onSubmit={e => this.submit(e)} >
+          
+          
         <input
               type="text"
               name="Username"
@@ -79,15 +81,22 @@ class Login extends Component {
           <button
             type="submit" >Login</button>
             <br></br>
-           <button>Register</button>
+            <Link to="/register">
+              <button>Register</button>
+            </Link> 
+             
+             
         </form>
         <h2>&nbsp;</h2>
-
+        {/* </> :
+             <Register/>
+             } */}
       </div>
-
-
-
-
+      <Route
+          path="/register"
+          render={() => <Register  history={this.props.history}  />}
+        />
+      </BrowserRouter>
     );
   }
 }
