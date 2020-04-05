@@ -14,6 +14,7 @@ export default class App extends React.Component {
 
   constructor(props) {
     super(props);
+  
 
     this.state = {
       toggle: true,
@@ -49,12 +50,13 @@ export default class App extends React.Component {
             //          - TicketForm => display form to add new ticket
 
   render(){
+    // const history = <history>;
     // console.log('MY API :  ',apiURL);
     return (
       <>
       <BrowserRouter>
      <Switch>
-      <Route path={'/'} exact component={() => <Login /> }/> 
+      <Route path={'/'} exact component={Login}/> 
       <Route
           path="/register"
           render={() => <Register  history={this.props.history}  />}
