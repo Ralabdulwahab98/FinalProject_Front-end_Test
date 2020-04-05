@@ -36,11 +36,14 @@ export const AddNewCustomer = req => {
     method: 'POST',
     url: apiURL + '/customer/register',
     data:{
+      // req
         FullName: req.FullName,
-        email: req.email,
+        Email: req.Email,
         Username:req.Username,
         password: req.password,
-        Phone: req.empPhone,
+        Phone: req.Phone,
+        UserType: req.UserType,
+        Worker: req.Worker
     }
   })
 }

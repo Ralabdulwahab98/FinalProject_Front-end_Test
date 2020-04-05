@@ -16,7 +16,7 @@ export default class Register extends Component {
             password: "",
             Email: "",
             Phone: "",
-            UserType: "",
+            UserType: "Customer",
             Worker: false,
         };
 
@@ -62,15 +62,10 @@ export default class Register extends Component {
         console.log(" newCustomer ==> ", newCustomer);
         e.preventDefault();
         this.addCustomer(newCustomer);
-        // BrowserHistory.goBack
-        // console.log(`history  ${this.props.history}`);
-        // this.props.history.goBack();
     };
 
     render() {
-        // let history = useHistory();
         return (
-            // <BrowserRouter>
             <div>
 
                 <form className="login" onSubmit={e => this.submit(e)}>
