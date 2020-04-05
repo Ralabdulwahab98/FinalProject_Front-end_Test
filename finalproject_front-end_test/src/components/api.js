@@ -54,9 +54,10 @@ export const AddNewService = (req,id) => {
     method: 'POST',
     url: apiURL + `/${id}`,
     data:{
+      // req
       ServiceType: req.ServiceType,
       ServiceDescription:  req.ServiceDescription,
-      ServiceState: "open",
+      ServiceState: "Open",
     }
     
   });

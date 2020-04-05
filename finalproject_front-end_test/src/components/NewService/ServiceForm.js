@@ -11,7 +11,6 @@ export default class ServiceForm extends React.Component {
         this.state = {
             ServiceType: "Electrician",
             ServiceDescription: '',
-            // ServiceState: "open",
         };
         this.handleChange = this.handleChange.bind(this);
         this.formAdd = this.formAdd.bind(this);
