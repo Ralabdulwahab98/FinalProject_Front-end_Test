@@ -1,6 +1,6 @@
 import React from 'react';
 import RequestService from './RequestService'
-import { getRequestService } from '../api';
+import { getRequestService, OnProgressService } from '../api';
 // import './SendTickets.css'; 
 import {getInfo} from '../login/decodeToken'
 export default class RequestServices extends React.Component{
@@ -9,7 +9,8 @@ export default class RequestServices extends React.Component{
         super(props)
 
         this.state = {
-       cus_RequestServices:[], 
+       cus_RequestServices:[],
+        
         };
       }
 
@@ -19,7 +20,12 @@ export default class RequestServices extends React.Component{
         getRequestService(mId)
         .then( (reponse)=>{
             console.log('reponse.data' , reponse.data )
-            this.setServices(reponse.data)
+            const openServiecs = reponse.data.filter((Service)=>{
+             if(Service.ServiceState === 'Open'){
+                 return reponse.data
+             }
+            });
+            this.setServices(openServiecs)
         })
         .catch( (error)=>{
             console.log(' API error: ',error );
@@ -29,19 +35,30 @@ export default class RequestServices extends React.Component{
     setServices = (cus_RequestServices) =>{
         this.setState( {cus_RequestServices} );
       }
+      changeStateToProgressService = (id) => {
+        // Make an API Call to onprogress a service
 
+        OnProgressService(id)
+       const newList = this.state.cus_RequestServices.filter((Service) => {
+           return Service._id !== id;
+      })
+      this.setState( {cus_RequestServices:newList} );
 
+   }
+   
    render(){
-      let allTickets = <h3> No Tickets! :( </h3>
+      let allServices = <h3> No Services! :( </h3>
 
       if(this.state.cus_RequestServices.length > 0 ){
-      allTickets= this.state.cus_RequestServices.map( (Services , index)=> {
+        allServices= this.state.cus_RequestServices.map( (Services , index)=> {
           return(
           <RequestService 
           id={Services._id}
           ServiceType={Services.ServiceType}
           Servicestate={Services.ServiceState}
           ServiceDescription={Services.ServiceDescription}
+          AllPrice={Services.AllPrice}
+          ProgressService={this.changeStateToProgressService}
           key={index} /> 
           );
       })}
@@ -50,7 +67,7 @@ export default class RequestServices extends React.Component{
         <div className="content">
             <h2>Your Services</h2>
         <ul className="timeline">
-            {allTickets}
+            {allServices}
         </ul>
         <button onClick={this.props.toggle} > Go back </button>
 
