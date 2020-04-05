@@ -6,46 +6,53 @@ export default class CustomerHome extends Component {
     super(props);
     this.state = {
       toggle: false,
+      type:"",
     };
   }
-  togglehandler(e){
-    e.preventDefault();
+  togglehandler(){
+    // e.preventDefault();
     this.setState({
       toggle: !this.state.toggle
     })
   }
+  typehandler(type){
+    this.setState({
+      type: type
+    })
+    this.togglehandler()
+  }
 
   render() {
+    console.log(this.state.type)
     return (
+
       <>
        {this.state.toggle === false?
       <div>
         <div className="all">
           <div className="lefter" 
-          onClick= {e=>this.togglehandler(e)}>
+          onClick= {()=>this.typehandler("Electrician") }>
             <div className="text">Electrician</div>
           </div>
           <div className="left"
-          onClick= {e=>this.togglehandler(e)}>
+          onClick= {()=>this.typehandler("Plumber") }>
             <div className="text">Plumber</div>
           </div>
-          <div className="center"
-          onClick= {e=>this.togglehandler(e)}>
+          <div className="center">
             <div className="explainer"><span>Services</span></div>
-            <div className="text"
-            onClick= {e=>this.togglehandler(e)}>Services</div>
+            <div className="text">Services</div>
           </div>
           <div className="right"
-          onClick= {e=>this.togglehandler(e)}>
+          onClick= {()=>this.typehandler("Painter") }>
             <div className="text">Painter</div>
           </div>
           <div className="righter"
-          onClick= {e=>this.togglehandler(e)}>
+          onClick= {()=>this.typehandler("Carpenter") }>
             <div className="text">Carpenter</div>
           </div>
         </div>
       </div>    
-      : <ServiceForm tog={e=>this.togglehandler(e)}/>
+      : <ServiceForm tog={e=>this.togglehandler(e)}  type={this.state.type } />
       }
       </>
     )

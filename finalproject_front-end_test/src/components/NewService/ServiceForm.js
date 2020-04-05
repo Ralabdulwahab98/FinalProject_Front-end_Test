@@ -9,7 +9,7 @@ export default class ServiceForm extends React.Component {
         super(props);
 
         this.state = {
-            ServiceType: "Electrician",
+            // ServiceType: "Electrician",
             ServiceDescription: '',
         };
         this.handleChange = this.handleChange.bind(this);
@@ -41,7 +41,10 @@ export default class ServiceForm extends React.Component {
  
 
     formAdd = e => {
-        const newService = this.state;
+        const newService = {
+            ServiceDescription: this.state.ServiceDescription,
+            ServiceType: this.props.type
+        }
         this.props.tog(e)
         console.log(" formAdd (newService) ==> ", newService);
         e.preventDefault();
@@ -53,7 +56,7 @@ export default class ServiceForm extends React.Component {
             <div className="modal">
                 <div className="side">
                     <div className="skew">
-                        <h3> {`${this.state.ServiceType}`} </h3>
+                        <h3> {`${this.props.type}`} </h3>
                         <img src={icon} />
                     </div>
                 </div>
