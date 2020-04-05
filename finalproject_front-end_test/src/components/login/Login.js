@@ -26,6 +26,7 @@ class Login extends Component {
 
   submit(e) {
     e.preventDefault();
+    const { history } = this.props
 
     axios
       .post(`${apiURL}/customer/login`, {
@@ -37,14 +38,16 @@ class Login extends Component {
         localStorage.setItem("currentUser", res.data.token);
         let jwt1 = getInfo().data.Worker;
         if (jwt1 === true) {
-          console.log("a:", jwt1);
-          this.props.history.push("/WorkerHeader");
+          console.log("this.props.history:", this.props);       
+          history.push("/WorkerHeader");
+          
         } else if (jwt1 === false) {
           console.log("B:", jwt1);
-          this.props.history.push("/CustomerHeader");
+          history.push("/CustomerHeader");
+
         } else if (jwt1 === undefined) {
           console.log("b: ", jwt1);
-          this.props.history.push("/");
+          history.push("/");
         }
         return res;
       })
