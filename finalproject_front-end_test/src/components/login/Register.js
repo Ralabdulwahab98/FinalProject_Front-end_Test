@@ -112,12 +112,13 @@ export default class Register extends Component {
                                 className="dropbtn"
                                 name="UserType"
                                 type="text"
-                                onChange={this.change}>
+                                value={this.state.UserType}
+                                onChange={e => this.change(e)}>
 
-                                <option className="dropdown-content" value={this.state.UserType = "Electrician"}>Electrician</option>
-                                <option className="dropdown-content" value={this.state.UserType = "Plumber"}>Plumber</option>
-                                <option className="dropdown-content" value={this.state.UserType = "Painter"}>Painter</option>
-                                <option className="dropdown-content" value={this.state.UserType = "Carpenter"}>Carpenter</option>
+                                <option className="dropdown-content" value="Electrician">  Electrician</option>
+                                <option className="dropdown-content" value="Plumber">  Plumber</option>
+                                <option className="dropdown-content" value="Painter"> Painter</option>
+                                <option className="dropdown-content" value="Carpenter">Carpenter</option>
 
                             </select>
 

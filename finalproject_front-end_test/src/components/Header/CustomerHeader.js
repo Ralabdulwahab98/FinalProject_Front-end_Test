@@ -1,5 +1,6 @@
 import React from "react";
 import "./header.css";
+import { getInfo } from "../login/decodeToken";
 import RequestServices from "../RequestServices/RequestServices";
 import { Route, BrowserRouter, Link } from "react-router-dom";
 import CustomerHome from "../home/CustomerHome";
@@ -15,6 +16,8 @@ export default class CustomerHeader extends React.Component {
     localStorage.clear("currentUser");
   };
   render() {
+    let info = getInfo().data
+    console.log("current user info ==> ",info)
     return (
       <BrowserRouter>
         {/* <Switch> */}
@@ -37,9 +40,9 @@ export default class CustomerHeader extends React.Component {
               </Link>
               <div id="divaa1">
                 {/* <Link to="/Profile"> */}
-                <input id="btna1" type="button" value="Theme" />
-                <input id="btna2" type="button" value="Profile" />
-                <input id="btna3" type="button" value="More" />
+                <input id="btna1" type="button" value={info.Username} />
+                <input id="btna2" type="button" value={info.FullName} />
+                <input id="btna3" type="button" value={info.Phone} />
                 <img
                   id="img2"
                   src="https://www.freeiconspng.com/uploads/account-profile-user-icon--icon-search-engine-10.png"
