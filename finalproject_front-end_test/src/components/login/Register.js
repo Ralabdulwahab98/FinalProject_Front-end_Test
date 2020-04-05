@@ -117,7 +117,7 @@ export default class Register extends Component {
                                 <option className="dropdown-content" value={this.state.UserType = "Electrician"}>Electrician</option>
                                 <option className="dropdown-content" value={this.state.UserType = "Plumber"}>Plumber</option>
                                 <option className="dropdown-content" value={this.state.UserType = "Painter"}>Painter</option>
-                                <option className="dropdown-content" value={this.state.UserType = "Builder"}>Builder</option>
+                                <option className="dropdown-content" value={this.state.UserType = "Carpenter"}>Carpenter</option>
 
                             </select>
 
