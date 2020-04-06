@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Find all service depend on WorkerId
 export const WorkerService = (id) =>{
-  return axios.get(`${apiURL}/service/${id}`);
+  return axios.get(`${apiURL}/service/open/${id}`);
 }
 // Get ALl Emp RequestService By cus ID
 export const getRequestService = (id) => {

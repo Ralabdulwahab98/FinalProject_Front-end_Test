@@ -17,29 +17,14 @@ export default class WorkerHome extends React.Component{
          this.submit = this.handleSubmit.bind(this);
     }
 
-//     componentDidMount(){
-//         // Mack API call to det all the Ticket that not have closed state  
-//         let ID = getInfo().data._id
-//         WorkerService(ID)
-//        .then( (repose)=>{
-//            console.log('repose.data' , repose.data )
-//            const Services = repose.data.filter((Service) => {
-//                if(Service.ServiceState === 'Open'){
-//                    return repose.data
-//                }
-//              });this.setState( {Services} );
-//        })
-//        .catch( (error)=>{
-//            console.log(' API error: ',error );
-//        })
-//    }
+
 
 handleChange = event => {
     this.setState({
         [event.target.name]: event.target.value
     });
 }
-AddPriceToTheSelectedService = (newPrice,id) => {
+AddPriceToTheSelectedService = (newPrice) => {
     // Make an axios Call to Add Price To The Selected Service 
     AddPriceToTheService(newPrice,this.props.id)
        .then((res) => {
@@ -75,7 +60,6 @@ togglehandler(e){
               </div>
               <div className="movie_desc">
                 <p className="description"> {this.props.ServiceDescription} </p>
-
                 <p  onClick={e => this.togglehandler(e)}>click to add price </p>
               </div>
               <div className="movie_social">    
