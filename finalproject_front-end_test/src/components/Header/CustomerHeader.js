@@ -4,6 +4,8 @@ import { getInfo } from "../login/decodeToken";
 import RequestServices from "../RequestServices/RequestServices";
 import { Route, BrowserRouter, Link ,Switch} from "react-router-dom";
 import CustomerHome from "../home/CustomerHome";
+import OnProgressList from "../onProgress/OnProgressList"
+import AllHistory from "../History/AllHistory"
 export default class CustomerHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -57,20 +59,20 @@ export default class CustomerHeader extends React.Component {
                 </Link>
               </div>
               <div id="divaa4">
-                {/* <Link to="/CustomerHeader/RequestServices"> */}
+                <Link to="/CustomerHeader/ServicesOnProgressList">
                   <img
                     id="img5"
                     src="https://cdn.iconscout.com/icon/premium/png-256-thumb/technical-support-service-1-911162.png"
                     alt=""/>
-                {/* </Link> */}
+                </Link>
               </div>
               <div id="divaa5">
-                {/* <Link to="/CustomerHeader/RequestServices"> */}
+                <Link to="/CustomerHeader/HistoryServices">
                   <img
                     id="img6"
                     src="https://cdn.iconscout.com/icon/premium/png-256-thumb/history-1772990-1508932.png"
                     alt=""/>
-                {/* </Link> */}
+                </Link>
               </div>
               <div id="divaa3">
                 <Link onClick={e => this.logOut(e)}>
@@ -87,7 +89,8 @@ export default class CustomerHeader extends React.Component {
 
         <Route exact={true} path="/CustomerHeader"component={CustomerHome} ></Route>
         <Route  path="/CustomerHeader/RequestServices"component={RequestServices} ></Route>
-
+        <Route  path="/CustomerHeader/ServicesOnProgressList"component={OnProgressList} ></Route>
+        <Route  path="/CustomerHeader/HistoryServices"component={AllHistory} ></Route>
        
         </Switch>
       </BrowserRouter>

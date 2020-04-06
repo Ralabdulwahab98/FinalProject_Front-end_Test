@@ -52,7 +52,7 @@
     height: 40%;
   }
   .movie_card .info_section .movie_header > h1 {
-    color: black;
+    color: rgb(135, 106, 151);
     font-weight: 400;
   }
   .movie_card .info_section .movie_header > h4 {
@@ -84,12 +84,15 @@
     height: 50%;
   }
   .movie_card .info_section .movie_desc .description {
-    color: #545454;
+    color: black;
+    padding-bottom: 20px;
   }
   .movie_card .info_section .movie_social {
     height: 10%;
     padding-left: 15px;
-    padding-bottom: 20px;
+    margin-top: -20px;
+    cursor: pointer;
+    color: rgb(135, 106, 151);
   }
   .movie_card .info_section .movie_social ul {
     list-style: none;
@@ -172,9 +175,6 @@
   }
   .bright_back {
     background: url("../../images/Services.jpg");
-    /* background-repeat: no-repeat;
-    background-size: cover; */
-  
   }
   
   .allServices{

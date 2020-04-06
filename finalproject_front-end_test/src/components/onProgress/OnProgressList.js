@@ -29,8 +29,10 @@ export default class OnProgressList extends React.Component{
     setServices = (cus_RequestServices) =>{
         this.setState( {cus_RequestServices} );
       }
+
+
     closeOneSerives = (id) => {
-        // Make an API Call to close a ticket
+        // Make an API Call to close a Services
         closeService(id)
      .then( (res)=>{
        const newList = this.state.cus_RequestServices.filter((Service) => {
@@ -45,30 +47,25 @@ export default class OnProgressList extends React.Component{
 
     render(){
         //map for get the 
-        let allServices = <h3> No Services! :( </h3>
-
+        let allServices 
             if(this.state.cus_RequestServices.length > 0 ){
               allServices= this.state.cus_RequestServices.map( (Services , index)=> {
                 return(
                 <ProgressList
                 id={Services._id}
                 ServiceType={Services.ServiceType}
-                Servicestate={Services.ServiceState}
+                ServiceState={Services.ServiceState}
                 ServiceDescription={Services.ServiceDescription}
                 AllPrice={Services.AllPrice}
-                ProgressService={this.changeStateToProgressService}
+                closeOneSerives={this.closeOneSerives}
                 key={index} /> 
                 );
             })}
 
         return(
-            <div className="content">
-            <h2>Your Services</h2>
-        <ul className="timeline">
+            <div className="allServices">
             {allServices}
-        </ul>
-
-        </div>);
+            </div>);
         
     }
 }
