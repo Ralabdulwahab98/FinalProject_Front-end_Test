@@ -1,61 +1,73 @@
 import React from 'react';
+import {userInfo} from '../api';
 export default class RequestService extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      Fltir:'none', 
+      toggle:false, 
+      workerInfo:null
+      
     };
   }
-   // To display or not the Service description  
+//    // To display or not the Service description  
    ServicesClicked = (e) => {
     e.preventDefault();
-    if( this.state.Fltir === 'none'){
-       this.setState({ 
-         Fltir:'display', }); 
-    }
-    else{
-        this.setState({ Fltir:'none' }); 
-    }
+    console.log("Service Worker info..")
+        this.setState({ toggle:! this.state.toggle }); 
+    
 }
+
 // chaneg the Service state to on progress
 progressClick = (e) => {
   e.preventDefault();
   this.props.ProgressService(this.props.id);
 }
+
+
+getWorkerDataByID = (id) => {
+  // Make an API Call to onprogress a service
+  userInfo(id)
+        .then( (reponse)=>{
+            console.log('workerInfo ==> reponse.data ===> ' , reponse.data )
+            this.setState( {workerInfo: reponse.data} )
+        })
+        .catch( (error)=>{
+            console.log(' API error: ',error );
+        })
+
+}
 //price map 
   render(){
     const AllPrice = this.props.AllPrice.map((Prices)=>{
       return(
-        <div>
-          {Prices.ServicePrice}
-          {Prices.ServicesEmp}
-          <button onClick={this.progressClick}>Accept</button>
-        </div>
+        <>
+          <button onClick={this.ServicesClicked} >{Prices.ServicePrice}</button>
+          {this.state.toggle === true ? 
+          <div className="movie_social">
+            <p> Service Worker info.. </p>
+            <button onClick={this.progressClick}>Accept</button>
+           </div> 
+            : ''
+          }
+          </>
       )
     })
 
     return(
-        <li className="event">
-          <div className="member-infos">
-            <h1 className="member-title"
-            onClick={e => this.ServicesClicked(e)}>
-                {this.props.ServiceState}
-           </h1>
-           <div className={`Description-${this.state.Fltir}`}>
-             <h2> {this.props.ServiceDescription} </h2>
-                <div class="member-parameters">
-                <li class="member-follower">
-                  <span class="followers">
-                  {this.props.ServiceType}
-                  {AllPrice}
-                  </span>
-                  </li>
-                  
+                  <div className="movie_card" id="bright">
+                  <div className="info_section">
+                    <div className="movie_header">
+                
+                      <h1>{this.props.ServiceType} </h1>
+                      <p className="type">{this.props.ServiceState}</p>
+                    </div>
+                    <div className="movie_desc">
+                      <p className="description"> {this.props.ServiceDescription} </p>
+                      {AllPrice}
+                    </div>
+                  </div>
+                  <div className="blur_back bright_back"></div>
                 </div>
-          </div>
-          
-          </div>        
-        </li>
     );
   }
 }

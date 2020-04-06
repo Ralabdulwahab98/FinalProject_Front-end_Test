@@ -1,48 +1,34 @@
 import React from 'react';
-export default class ProgressList extends React.Component{
-  constructor(props){
+export default class ProgressList extends React.Component {
+  constructor(props) {
     super(props)
     this.state = {
     };
   }
 
-    closeClick = (e) => {
-        e.preventDefault();
-        this.closeOneSerives(this.props.id);
-      }
-//price map 
-  render(){
-    const AllPrice = this.props.AllPrice.map((Prices)=>{
-      return(
-        <div>
-          {Prices.ServicePrice}
-          {Prices.ServicesEmp}
-          <button onClick={this.closeClick}>Close</button>
-        </div>
-      )
-    })
+  closeClick = (e) => {
+    e.preventDefault();
+    this.props.closeOneSerives(this.props.id);
+  }
+  
+  render() {
+    return (
+      <div className="movie_card" id="bright">
+        <div className="info_section">
+          <div className="movie_header">
 
-    return(
-        <li className="event">
-          <div className="member-infos">
-            <h1 className="member-title">
-                {this.props.ServiceState}
-           </h1>
-           <div className={`Description-${this.state.Fltir}`}>
-             <h2> {this.props.ServiceDescription} </h2>
-                <div class="member-parameters">
-                <li class="member-follower">
-                  <span class="followers">
-                  {this.props.ServiceType}
-                  {AllPrice}
-                  </span>
-                  </li>
-                  
-                </div>
+            <h1>{this.props.ServiceType} </h1>
+            <p className="type">{this.props.ServiceState}</p>
           </div>
-          
-          </div>        
-        </li>
+          <div className="movie_desc">
+            <p className="description"> {this.props.ServiceDescription} </p>
+         </div>
+         <div class="movie_social" onClick={this.closeClick}>
+         <ul><i><i class="material-icons">Close</i></i></ul>
+            </div>
+        </div>
+        <div className="blur_back bright_back"></div>
+      </div>
     );
   }
 }

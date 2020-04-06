@@ -17,23 +17,6 @@ export default class WorkerHome extends React.Component{
          this.submit = this.handleSubmit.bind(this);
     }
 
-//     componentDidMount(){
-//         // Mack API call to det all the Ticket that not have closed state  
-//         let ID = getInfo().data._id
-//         WorkerService(ID)
-//        .then( (repose)=>{
-//            console.log('repose.data' , repose.data )
-//            const Services = repose.data.filter((Service) => {
-//                if(Service.ServiceState === 'Open'){
-//                    return repose.data
-//                }
-//              });this.setState( {Services} );
-//        })
-//        .catch( (error)=>{
-//            console.log(' API error: ',error );
-//        })
-//    }
-
 handleChange = event => {
     this.setState({
         [event.target.name]: event.target.value
@@ -51,7 +34,9 @@ AddPriceToTheSelectedService = (newPrice,id) => {
 }
 
 handleSubmit = e => {
-    const addNewPrice = {ServicePrice:this.state.ServicePrice,ServicesEmp: this.state.ServicesEmp };
+    const addNewPrice = {
+      ServicePrice:this.state.ServicePrice,
+      ServicesEmp: this.state.ServicesEmp };
     console.log(" addNewPrice ==> ", addNewPrice);
     e.preventDefault();
     this.AddPriceToTheSelectedService(addNewPrice);
@@ -98,3 +83,5 @@ togglehandler(e){
           </div>
         );
 }}
+
+
