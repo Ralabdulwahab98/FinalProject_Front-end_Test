@@ -64,6 +64,14 @@ export default class CustomerHeader extends React.Component {
                     alt=""/>
                 {/* </Link> */}
               </div>
+              <div id="divaa5">
+                {/* <Link to="/CustomerHeader/RequestServices"> */}
+                  <img
+                    id="img6"
+                    src="https://cdn.iconscout.com/icon/premium/png-256-thumb/history-1772990-1508932.png"
+                    alt=""/>
+                {/* </Link> */}
+              </div>
               <div id="divaa3">
                 <Link onClick={e => this.logOut(e)}>
                   <img

@@ -60,6 +60,22 @@ export default class WorkerHeader extends React.Component {
                       alt="" />
                   </Link>
                 </div>
+                <div id="divaa4">
+                {/* <Link to="/CustomerHeader/RequestServices"> */}
+                  <img
+                    id="img5"
+                    src="https://cdn.iconscout.com/icon/premium/png-256-thumb/history-1772990-1508932.png"
+                    alt=""/>
+                {/* </Link> */}
+              </div>
+              <div id="divaa5">
+                {/* <Link to="/CustomerHeader/RequestServices"> */}
+                  <img
+                    id="img6"
+                    src="https://pngimage.net/wp-content/uploads/2018/06/waiting-icon-png-9.png"
+                    alt=""/>
+                {/* </Link> */}
+              </div>
                 <div id="divaa3">
                   <Link onClick={e => this.logOut(e)}>
                     <img
