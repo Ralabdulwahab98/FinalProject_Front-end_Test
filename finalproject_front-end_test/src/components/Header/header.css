@@ -101,7 +101,7 @@ background-color: red;
 }
 #div1{
   position:absolute;
-  left:calc(50% - 360px);
+  left:calc(50% - 370px);
   top:calc(20% - 140px);
   width:790px;
   height:130px;
@@ -186,8 +186,8 @@ background-color: red;
 #divaa2{
   position:absolute;
   left:265px;
-  width:80px;
-  height:80px;
+  width:90px;
+  height:75px;
   /* border:5px solid white; */
   border-radius:100px;
   /* background:white; */
