@@ -1,27 +1,15 @@
 import React from 'react';
-export default class RequestService extends React.Component{
+export default class ProgressList extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      Fltir:'none', 
     };
   }
-   // To display or not the Service description  
-   ServicesClicked = (e) => {
-    e.preventDefault();
-    if( this.state.Fltir === 'none'){
-       this.setState({ 
-         Fltir:'display', }); 
-    }
-    else{
-        this.setState({ Fltir:'none' }); 
-    }
-}
-// chaneg the Service state to on progress
-progressClick = (e) => {
-  e.preventDefault();
-  this.props.ProgressService(this.props.id);
-}
+
+    closeClick = (e) => {
+        e.preventDefault();
+        this.closeOneSerives(this.props.id);
+      }
 //price map 
   render(){
     const AllPrice = this.props.AllPrice.map((Prices)=>{
@@ -29,7 +17,7 @@ progressClick = (e) => {
         <div>
           {Prices.ServicePrice}
           {Prices.ServicesEmp}
-          <button onClick={this.progressClick}>Accept</button>
+          <button onClick={this.closeClick}>Close</button>
         </div>
       )
     })
@@ -37,8 +25,7 @@ progressClick = (e) => {
     return(
         <li className="event">
           <div className="member-infos">
-            <h1 className="member-title"
-            onClick={e => this.ServicesClicked(e)}>
+            <h1 className="member-title">
                 {this.props.ServiceState}
            </h1>
            <div className={`Description-${this.state.Fltir}`}>

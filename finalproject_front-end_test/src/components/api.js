@@ -13,23 +13,26 @@ export const getRequestService = (id) => {
 export const getReceivedServices = (id) => {
     return axios.get(`${apiURL}/customer/ReceivedService/${id}`);
   } 
-//close Ticket 
+//close ServiceState 
 export const closeService = (id) => {
-    return axios({
-      method: 'patch',
-      url: apiURL + `/UpdateTicket/${id}`,
-      data:{
-        TicketState: 'closed',
-      }
-    })
-  }  
-//delete Ticket 
-export const deleteTicket = (id) => {
-    return axios({
-      method: 'delete',
-      url: apiURL + `/DeleteTicket/${id}`,
-    })
-  }  
+  return axios({
+    method: 'patch',
+    url: apiURL + `/UpdateTicket/${id}`,
+    data:{
+      ServiceState: 'Closed',
+    }
+  })
+}  
+//On progress Serviec 
+export const OnProgressService = (id ,req) => {
+return axios({
+  method: 'patch',
+  url: apiURL + `/UpdateService/${id}`,
+  data:{
+    ServiceState: 'On Progress',
+  }
+})
+}  
   //Add new Customer
 export const AddNewCustomer = req => {
   return axios({
