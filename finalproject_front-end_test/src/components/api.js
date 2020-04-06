@@ -76,3 +76,15 @@ export const UpdateService = (req,id) => {
   })
 }
 
+export const AddPriceToTheService = (req,id) => {
+  return axios({
+    method: 'patch',
+    url: apiURL + `/PassService/${id}`,
+    data:{
+      ServicePrice: req.ServicePrice,
+      ServicesEmp: req.ServicesEmp
+    }
+    
+  })
+}
+
