@@ -4,7 +4,7 @@ import "./header.css";
 import { getInfo } from "../login/decodeToken";
 import ReceivedServices from "../ReceivedServices/ReceivedServices";
 import { Route, BrowserRouter, Link } from "react-router-dom";
-import WorkerHome from "../home/WorkerHome";
+import ListOfServices from "../home/ListOfServices";
 export default class WorkerHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -35,7 +35,7 @@ export default class WorkerHeader extends React.Component {
               <div id="rock7"></div>
               <div id="rock8"></div>
               <div id="diva1">
-                <Link to="/Workerhome">
+                <Link to="/ListOfServices">
                   <img
                     id="img1"
                     src="https://t4.ftcdn.net/jpg/00/97/00/07/240_F_97000769_R4zepLTgmf8G22W7G2o8JA1HeiVK2CkK.jpg"
@@ -80,8 +80,8 @@ export default class WorkerHeader extends React.Component {
           render={() => <ReceivedServices />}
         />
         <Route
-          path="/Workerhome"
-          render={() => <WorkerHome />}
+          path="/ListOfServices"
+          render={() => <ListOfServices />}
         />
         {/* </Switch> */}
       </BrowserRouter>
