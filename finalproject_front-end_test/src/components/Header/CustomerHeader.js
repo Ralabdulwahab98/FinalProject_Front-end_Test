@@ -4,13 +4,10 @@ import { getInfo } from "../login/decodeToken";
 import RequestServices from "../RequestServices/RequestServices";
 import { Route, BrowserRouter, Link ,Switch} from "react-router-dom";
 import CustomerHome from "../home/CustomerHome";
-<<<<<<< HEAD
 import OnProgressList from "../onProgress/OnProgressList"
 import AllHistory from "../History/AllHistory"
-=======
 // import "../../images";
 // import "../../images";
->>>>>>> b0f13396146f7bffe3c6b707ad9364c2d364b699
 export default class CustomerHeader extends React.Component {
   constructor(props) {
     super(props);
