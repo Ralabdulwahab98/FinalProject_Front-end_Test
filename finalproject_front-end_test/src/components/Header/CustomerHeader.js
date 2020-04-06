@@ -2,7 +2,7 @@ import React from "react";
 import "./header.css";
 import { getInfo } from "../login/decodeToken";
 import RequestServices from "../RequestServices/RequestServices";
-import { Route, BrowserRouter, Link } from "react-router-dom";
+import { Route, BrowserRouter, Link ,Switch} from "react-router-dom";
 import CustomerHome from "../home/CustomerHome";
 export default class CustomerHeader extends React.Component {
   constructor(props) {
@@ -20,7 +20,6 @@ export default class CustomerHeader extends React.Component {
     console.log("current user info ==> ",info)
     return (
       <BrowserRouter>
-        {/* <Switch> */}
         <div>
           <div id="div1">
             <div id="rock1"></div>
@@ -32,7 +31,7 @@ export default class CustomerHeader extends React.Component {
             <div id="rock7"></div>
             <div id="rock8"></div>
             <div id="diva1">
-              <Link to="/home">
+              <Link to="/CustomerHeader">
                 <img
                   id="img1"
                   src="https://t4.ftcdn.net/jpg/00/97/00/07/240_F_97000769_R4zepLTgmf8G22W7G2o8JA1HeiVK2CkK.jpg"
@@ -57,6 +56,14 @@ export default class CustomerHeader extends React.Component {
                     alt=""/>
                 </Link>
               </div>
+              <div id="divaa4">
+                {/* <Link to="/CustomerHeader/RequestServices"> */}
+                  <img
+                    id="img5"
+                    src="https://cdn.iconscout.com/icon/premium/png-256-thumb/technical-support-service-1-911162.png"
+                    alt=""/>
+                {/* </Link> */}
+              </div>
               <div id="divaa3">
                 <Link onClick={e => this.logOut(e)}>
                   <img
@@ -67,21 +74,14 @@ export default class CustomerHeader extends React.Component {
               </div>
             </div>
           </div>
-
-          {/* <Route path={'/CustomerHeader/RequestServices'} component = {RequestServices} /> */}
-          {/* <RequestServices /> */}
         </div>
-        <Route
-          path="/CustomerHeader/RequestServices"
-          render={() => <RequestServices />}
-        />
-          <Route
-          path="/home"
-          render={() => <CustomerHome/>}
-        />
-        
-        
-        {/* </Switch> */}
+        <Switch>
+
+        <Route exact={true} path="/CustomerHeader"component={CustomerHome} ></Route>
+        <Route  path="/CustomerHeader/RequestServices"component={RequestServices} ></Route>
+
+       
+        </Switch>
       </BrowserRouter>
     );
   }
