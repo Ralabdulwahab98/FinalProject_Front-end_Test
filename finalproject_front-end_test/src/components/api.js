@@ -15,7 +15,7 @@ export const getReceivedServices = (id) => {
   } 
 // Get all service depend on UserId and if the ServiceState is closed
 export const getAllClosedService = (id) => {
-  return axios.get(`${apiURL}/service/closed/${id}`);
+  return axios.get(`${apiURL}/Find/All/closed/Service/${id}`);
 }   
 // Find all User info depend on Id
 export const userInfo = (id) =>{
@@ -27,7 +27,7 @@ export const userInfo = (id) =>{
 export const deleteOneService = (id) => {
   return axios({
     method: 'delete',
-    url: apiURL + `/DeleteTicket/${id}`,
+    url: apiURL + `/DeleteService/${id}`,
   })
 }  
 
