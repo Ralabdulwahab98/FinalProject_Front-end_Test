@@ -1,87 +1,105 @@
 import React from "react";
 import { getInfo } from "../login/decodeToken";
-import { AddPriceToTheService } from "../api";
-import './card.css'; 
+import { AddPriceToTheService, WaitingService } from "../api";
+import './card.css';
+import './formstyle.scss'
 
-export default class WorkerHome extends React.Component{
-    constructor(props){
-        super(props)
-        this.state={
-            toggle: false,
-       
-                ServicesEmp:getInfo().data._id,
-                ServicePrice: 0
-        
-         };
-         this.change = this.handleChange.bind(this);
-         this.submit = this.handleSubmit.bind(this);
-    }
+export default class WorkerHome extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      toggle: false,
+      ServicesEmp: getInfo().data._id,
+      ServicePrice: 0,
 
-handleChange = event => {
+    };
+    this.change = this.handleChange.bind(this);
+    this.submit = this.handleSubmit.bind(this);
+  }
+  handleChange = event => {
     this.setState({
-        [event.target.name]: event.target.value
+      [event.target.name]: event.target.value
     });
-}
-AddPriceToTheSelectedService = (newPrice,id) => {
+  }
+  AddPriceToTheSelectedService = (newPrice) => {
     // Make an axios Call to Add Price To The Selected Service 
-    AddPriceToTheService(newPrice,this.props.id)
-       .then((res) => {
-           console.log("setState",this.props.id)
-       })
-       .catch((err) => {
+    AddPriceToTheService(newPrice, this.props.id)
+      .then((res) => {
+        console.log("you're Price has been added successfully")
+      })
+      .catch((err) => {
         console.log("API ERROR: ", err);
-       })
-}
+      })
+  }
 
-handleSubmit = e => {
+
+  UpdateClick = (e) => {
+    e.preventDefault();
+    console.log(`the ${this.props.id}Service  delet Click `)
+    this.props.UpdateServiceById(this.props.id)
+  }
+
+  handleSubmit = e => {
     const addNewPrice = {
-      ServicePrice:this.state.ServicePrice,
-      ServicesEmp: this.state.ServicesEmp };
+      ServicePrice: this.state.ServicePrice,
+      ServicesEmp: this.state.ServicesEmp
+    };
     console.log(" addNewPrice ==> ", addNewPrice);
     e.preventDefault();
     this.AddPriceToTheSelectedService(addNewPrice);
-};
-togglehandler(e){
-        e.preventDefault();
-        this.setState({
-            toggle: !this.state.toggle
-        })
-    }
+    this.props.UpdateServiceById(this.props.id);
+    this.setState.ServicePrice = 0
+  };
+  togglehandler(e) {
+    e.preventDefault();
+    this.setState({
+      toggle: !this.state.toggle
+    })
+  }
 
-   render(){
-       
-        return(          
-          <div className="movie_card" id="bright">
-            <div className="info_section">
-              <div className="movie_header">
-          
-                <h1>{this.props.ServiceType}</h1>
-                <p className="type">{this.props.ServiceState}</p>
-              </div>
-              <div className="movie_desc">
-                <p className="description"> {this.props.ServiceDescription} </p>
+  render() {
 
-                <p  onClick={e => this.togglehandler(e)}>click to add price </p>
-              </div>
-              <div className="movie_social">    
-                <ul>
-                </ul>
-                {this.state.toggle === true ? 
-                <form onSubmit={e => this.submit(e)}>
-                <input 
-                 name="ServicePrice"
-                 value={this.state.ServicePrice}
-                 type="number"
-                 onChange={e => this.change(e)}/> 
-                 <button type="submit"> Add Price to the service</button>
-                </form>
-                : ''
-                  }
-              </div>
-            </div>
-            <div className="blur_back bright_back"></div>
+    return (
+      <div className="movie_card" id="bright">
+        <div className="info_section">
+          <div className="movie_header">
+
+            <h1>{this.props.ServiceType}</h1>
+            <p className="type">{this.props.ServiceState}</p>
           </div>
-        );
-}}
+          <div className="movie_desc">
+            <p className="description"> {this.props.ServiceDescription} </p>
+    
+          </div>
+          <div className="movie_social">        <dive className="inputContainer">
+            <p ><span className="input" onClick={e => this.togglehandler(e)}>click to add price</span> </p>
+            </dive>
+            <ul>
+            </ul>
+            {this.state.toggle === true ?
+              <dive className="inputContainer">
+
+                <p>
+                  <form onSubmit ={e=>this.submit(e)}>
+                  <span className="input">
+                    <input type="number" placeholder="Add Price to the service" />
+                    <span></span>
+                  </span>
+                  <span className="input">
+                    <button type="submit" placeholder="Add Price to the service">submit</button>
+                    <span></span>
+                  </span>
+                  </form>
+                </p>
+              </dive>
+              : ''
+            }
+          </div>
+        </div>
+        <div className="blur_back bright_back"></div>
+      </div>
+    );
+  }
+}
 
 

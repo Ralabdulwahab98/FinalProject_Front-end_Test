@@ -10,6 +10,8 @@ import share from "../../images/share.png";
 import history1 from"../../images/history.png";
 import hourglass from"../../images/hourglass.png";
 import logout from"../../images/logout.png";
+import AllHistory from '../History/AllHistory';
+import ContainerOfWaitingService from '../WaitingService/ContainerOfWaitingService'
 export default class WorkerHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -58,7 +60,7 @@ export default class WorkerHeader extends React.Component {
                   {/* </Link> */}
                 </div>
                 <div id="divaa2">
-                  <Link to="/CustomerHeader/RequestServices">
+                  <Link to="/WorkerHeader/RequestServices">
                     <img
                       id="img3"
                       src={share}
@@ -66,20 +68,20 @@ export default class WorkerHeader extends React.Component {
                   </Link>
                 </div>
                 <div id="divaa4">
-                {/* <Link to="/CustomerHeader/RequestServices"> */}
+                <Link to="/WorkerHeader/HistoryServices" >
                   <img
                     id="img5"
                     src={history1}
                     alt=""/>
-                {/* </Link> */}
+                </Link>
               </div>
               <div id="divaa5">
-                {/* <Link to="/CustomerHeader/RequestServices"> */}
-                  <img
+                <Link to="/WorkerHeader/WaitingService" >
+                 <img
                     id="img6"
                     src={hourglass}
                     alt=""/>
-                {/* </Link> */}
+                </Link>
               </div>
                 <div id="divaa3">
                   <Link onClick={e => this.logOut(e)}>
@@ -103,6 +105,15 @@ export default class WorkerHeader extends React.Component {
           path="/ListOfServices"
           component={ListOfServices}
         />
+     <Route  
+     path="/WorkerHeader/HistoryServices"
+     component={AllHistory} ></Route>
+
+ <Route  
+     path="/WorkerHeader/WaitingService"
+     component={ContainerOfWaitingService} ></Route>
+
+
         {/* </Switch> */}
       </BrowserRouter>
     );

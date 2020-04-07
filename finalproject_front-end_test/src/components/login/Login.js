@@ -39,19 +39,16 @@ class Login extends Component {
         localStorage.setItem("currentUser", res.data.token);
         let jwt1 = getInfo().data.Worker;
         if (jwt1 === true) {
-          console.log("this.props.history:", this.props); 
-             Swal.fire(`welcome ${getInfo().data.Username}`,"",'success');      
-          history.push("/WorkerHeader");
+          console.log("this.props.history:", this.props);       
+          this.props.history.push("/WorkerHeader");
           
         } else if (jwt1 === false) {
           console.log("B:", jwt1);
-          Swal.fire(`welcome ${getInfo().data.Username}`,"",'success');      
-          history.push("/CustomerHeader");
+          this.props.history.push("/CustomerHeader");
 
         } else if (jwt1 === undefined) {
           console.log("b: ", jwt1);
-        Swal.fire(` ${jwt1}`,"",'error');
-          history.push("/");
+          this.props.history.push("/");
         }
         return res;
       })

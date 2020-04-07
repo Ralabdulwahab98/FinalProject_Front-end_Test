@@ -16,6 +16,14 @@ export const getReceivedServices = (id) => {
 // Get all service depend on UserId and if the ServiceState is closed
 export const getAllClosedService = (id) => {
   return axios.get(`${apiURL}/Find/All/closed/Service/${id}`);
+} 
+// Get all service depend on UserId and if the ServiceState is Waiting
+export const getAllServiceInWaitingList = (id) => {
+  return axios.get(`${apiURL}/Find/All/Waiting/Service/${id}`);
+} 
+// Get all service depend on UserId and if the ServiceState is OnProgress
+export const getAllServiceInOnProgress = (id) => {
+  return axios.get(`${apiURL}/Find/All/OnProgress/Service/${id}`);
 }   
 // Find all User info depend on Id
 export const userInfo = (id) =>{
@@ -47,10 +55,19 @@ return axios({
   method: 'patch',
   url: apiURL + `/UpdateService/${id}`,
   data:{
-    ServiceState: 'On Progress',
+    ServiceState: 'OnProgress',
   }
 })
-}  
+}
+export const WaitingService = (id ,req) => {
+  return axios({
+    method: 'patch',
+    url: apiURL + `/UpdateService/${id}`,
+    data:{
+      ServiceState: 'Waiting',
+    }
+  })
+  }  
   //Add new Customer
 export const AddNewCustomer = req => {
   return axios({
@@ -83,7 +100,7 @@ export const AddNewService = (req,id) => {
     
   });
 }
-//Update Ticket 
+//Update Service 
 export const UpdateService = (req,id) => {
   return axios({
     method: 'patch',

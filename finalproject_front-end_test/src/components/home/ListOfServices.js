@@ -1,42 +1,62 @@
 import React, { Component } from 'react'
 import WorkerHome from './WorkerHome'
 import { getInfo } from "../login/decodeToken";
-import {AddPriceToTheService,WorkerService} from '../api'
+import {WorkerService,WaitingService} from '../api'
 export default class ListOfServices extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            Service: null,
-            newPrice:{
-                ServicesEmp:getInfo().data._id,
-                ServicePrice:0},
+            Service: [],
+  
         };
     }
-        componentDidMount(){
-            // Mack API call to get all service that match to worker job
-            let ID = getInfo().data._id
-            WorkerService(ID)
-           .then( (repose)=>{
-               console.log('repose.data' , repose.data )
-               const AllServices = repose.data.filter((Services) => {
-                   if(Services.ServiceState === 'Open'){
-                       return repose.data
-                   }
-               })
-                 this.setState({Service:AllServices});
-           })
-           .catch( (error)=>{
-               console.log(' API error: ',error );
-           })
-       }
 
+    
+    componentDidMount(){
+        // Mack API call to get all service that match to worker job
+        let ID = getInfo().data._id
+        WorkerService(ID)
+       .then( (repose)=>{
+           console.log('repose.data' , )
+
+             this.setState({Service:repose.data });
+       })
+       .catch( (error)=>{
+           console.log(' API error: ',error );
+       })
+   }
+
+
+UpdateServiceById = (id) => {
+    // Make an API Call to delete a service
+
+    console.log( `Make an API Call to delete a service the ${id} `)
+    WaitingService(id)
+       .then((res) => {
+           const Service = this.state.Service.filter((Service) => {
+               return Service._id !== id; 
+           });
+           this.setState({ Service});
+       })
+       .catch((err) => {
+       })
+}
+
+//    UpdateServiceById = (id) => {
+//     WaitingService(id)
+//  .then( (res)=>{
+
+//  })
+//   .catch( (err)=>{
+//   })
+// }
 
     render(){
         console.log(this.state.Service)
         let Service = <h3> No Service Match you're job.. </h3>
-        if(this.state.Service !== null ){
-            console.log(this.state.Service)
+        if(this.state.Service.length > 0 ){
+            console.log("State:",this.state.Service)
             Service = this.state.Service.map((Services , index )=> {
             return(
             <WorkerHome 
@@ -45,6 +65,7 @@ export default class ListOfServices extends Component {
             ServiceType={Services.ServiceType}
             ServiceState={Services.ServiceState}
             ServiceDescription={Services.ServiceDescription}
+            UpdateServiceById = {this.UpdateServiceById}
             key={index} /> 
             );
         })}
