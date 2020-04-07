@@ -15,7 +15,7 @@ export default class RequestService extends React.Component{
     console.log("Service Worker info..")
         this.setState({ toggle:! this.state.toggle }); 
         console.log("this.props.AllPrice.ServicesEmp" ,this.props.AllPrice)
-        this.getWorkerDataByID(this.props.workerId)
+        this.getWorkerDataByID(this.props.workerId.ServicesEmp)
 }
 
 // chaneg the Service state to on progress

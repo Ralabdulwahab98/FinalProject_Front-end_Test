@@ -47,7 +47,6 @@ export default class RequestServices extends React.Component{
 
       if(this.state.cus_RequestServices.length > 0 ){
         allServices= this.state.cus_RequestServices.map( (Services , index)=> {
-          console.log("AllPrice",Services.AllPrice[0].ServicesEmp)
           return(
           <RequestService 
           id={Services._id}
@@ -55,7 +54,7 @@ export default class RequestServices extends React.Component{
           ServiceState={Services.ServiceState}
           ServiceDescription={Services.ServiceDescription}
           AllPrice={Services.AllPrice}
-          workerId={Services.AllPrice[0].ServicesEmp}
+          workerId={Services.AllPrice[0]}
           ProgressService={this.changeStateToProgressService}
           key={index} /> 
           );
