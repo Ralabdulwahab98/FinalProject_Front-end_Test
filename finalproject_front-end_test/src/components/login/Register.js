@@ -6,6 +6,7 @@ import { AddNewCustomer } from '../api';
 // import { withRouter } from "react-router-dom";
 import Back from "./Back";
 import "./login.css";
+import Swal from "sweetalert2"; 
 export default class Register extends Component {
     constructor(props) {
         super(props);
@@ -50,10 +51,11 @@ export default class Register extends Component {
         AddNewCustomer(Customer)
             .then(response => {
                 // Alert Massge 
-                console.log(`The Customer ${Customer.FullName} has been added successfully.`);
-            })
+                Swal.fire(`The User ${Customer.FullName} has been added successfully.`,"",'success');
+                        })
             .catch(error => {
                 console.log("API ERROR: ", error);
+                Swal.fire(`Wrong ${error}`,"",'error');
             });
     };
 

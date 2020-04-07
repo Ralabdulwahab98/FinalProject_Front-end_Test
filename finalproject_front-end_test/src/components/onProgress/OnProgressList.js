@@ -2,6 +2,7 @@ import React from 'react';
 import { getRequestService, closeService } from '../api';
 import { getInfo } from '../login/decodeToken';
 import ProgressList from './ProgressList';
+import Swal from "sweetalert2";
 export default class OnProgressList extends React.Component{
     constructor(props){
         super(props)
@@ -38,6 +39,7 @@ export default class OnProgressList extends React.Component{
        const newList = this.state.cus_RequestServices.filter((Service) => {
            return Service._id !== id;
          });
+         Swal.fire(`The Service Closed`,"",'success')
          this.setState( {cus_RequestServices:newList} );
      })
       .catch( (err)=>{
