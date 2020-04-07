@@ -2,7 +2,7 @@
 
 import React from "react";
 // import HistoryTicket from "./HistoryTicket"
-import { getAllClosedService , deleteOneService } from "../api";
+import { getAllClosedService , deleteOneService ,getRequestService} from "../api";
 import { getInfo } from '../login/decodeToken';
 
 export default class AllHistory extends React.Component {
@@ -13,35 +13,38 @@ export default class AllHistory extends React.Component {
           History: null,
         };
     }
-    // componentDidMount() {
-    //     // Mack API call to det all the Ticket of closed state 
-    //     getAllTicket()
-    //         .then(repose => {
-    //             console.log("reponse.data", repose.data);
-    //             const history = repose.data.filter((Ticket) => {
-    //                 if (Ticket.ServiceState === "closed") {
-    //                     return repose.data;
-    //                 }
-    //             })
-    //             this.setState({ history });
-                
-    //         })
-    //         .catch(error => {
-    //             console.log(" API error: ", error);
-    //         });
+    componentDidMount(){
+      // Mack API call 
+      let mId = getInfo().data._id
+      getRequestService(mId)
+      .then( (reponse)=>{
+          console.log('reponse.data' , reponse.data )
+          const History = reponse.data.filter((Service)=>{
+           if(Service.ServiceState === 'closed'){
+               return reponse.data
+           }
+          });
+          this.setState( {History} );
+      })
+      .catch( (error)=>{
+          console.log(' API error: ',error );
+      })
+  }
+  // setServices = (History) =>{
+  //     this.setState( {History} );
+  //   }
+    //     componentDidMount(){
+    //     // Mack API call 
+    //     let mId = getInfo().data._id
+    //     getAllClosedService(mId)
+    //     .then( (reponse)=>{
+    //         console.log('reponse.data' , reponse.data )
+    //         this.setState({History: reponse.data})
+    //     })
+    //     .catch( (error)=>{
+    //         console.log(' API error: ',error );
+    //     })
     // }
-        componentDidMount(){
-        // Mack API call 
-        let mId = getInfo().data._id
-        getAllClosedService(mId)
-        .then( (reponse)=>{
-            console.log('reponse.data' , reponse.data )
-            this.setState({History: reponse.data})
-        })
-        .catch( (error)=>{
-            console.log(' API error: ',error );
-        })
-    }
 
     delet = (id) => {
          // Make an API Call to delete a ticket

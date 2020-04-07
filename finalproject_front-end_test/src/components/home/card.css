@@ -85,7 +85,7 @@
   }
   .movie_card .info_section .movie_desc .description {
     color: black;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
   }
   .movie_card .info_section .movie_social {
     height: 10%;
@@ -185,4 +185,24 @@
     background-color: transparent;
   }
   
-  
+
+  .Price {
+    padding-top: 8px;
+    font-family: "Asap", sans-serif;
+  }
+  .Price > p {
+    color: rgb(52, 51, 53);
+  }
+  .Price >button{
+    font-family: "Asap", sans-serif;
+    cursor: pointer;
+    color: rgb(135, 106, 151);
+    border: 0;
+  }
+
+  .movie_desc >button{
+    font-family: "Asap", sans-serif;
+    cursor: pointer;
+    color: rgb(135, 106, 151);
+    border: 10;
+  }

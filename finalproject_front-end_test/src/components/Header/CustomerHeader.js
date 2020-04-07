@@ -77,14 +77,14 @@ export default class CustomerHeader extends React.Component {
                     alt=""/>
                 </Link>
               </div>
-              <div id="divaa3">
+              {/* <div id="divaa3">
                 <Link onClick={e => this.logOut(e)}>
                   <img
                     id="img4"
                     src={require("../../images/logout.png")}
                     alt=""/>
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
