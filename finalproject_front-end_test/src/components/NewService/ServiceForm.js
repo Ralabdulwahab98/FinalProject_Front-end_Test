@@ -24,7 +24,7 @@ export default class ServiceForm extends React.Component {
         
         AddNewService(info, id)
             .then(response => {
-                Swal.fire(`The Service of customer ${getInfo().data.Username} has been added successfully.`);
+                Swal.fire(`The Service of customer ${getInfo().data.Username} has been added successfully.`,"",'success');
             })
 
             .catch(error => {
