@@ -5,6 +5,7 @@ import { getInfo } from "./decodeToken";
 import { Route, BrowserRouter, Link } from "react-router-dom";
 import "./login.css";
 import Register from './Register'
+import Swal from "sweetalert2"; 
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -38,21 +39,26 @@ class Login extends Component {
         localStorage.setItem("currentUser", res.data.token);
         let jwt1 = getInfo().data.Worker;
         if (jwt1 === true) {
-          console.log("this.props.history:", this.props);       
+          console.log("this.props.history:", this.props); 
+             Swal.fire(`welcome ${getInfo().data.Username}`,"",'success');      
           history.push("/WorkerHeader");
           
         } else if (jwt1 === false) {
           console.log("B:", jwt1);
+          Swal.fire(`welcome ${getInfo().data.Username}`,"",'success');      
           history.push("/CustomerHeader");
 
         } else if (jwt1 === undefined) {
           console.log("b: ", jwt1);
+        Swal.fire(` ${jwt1}`,"",'error');
           history.push("/");
         }
         return res;
       })
       .catch(error => {
         console.log("ERROR: ", error);
+        Swal.fire(` Invalid Username or Password`,"",'error');
+
       });
   }
 

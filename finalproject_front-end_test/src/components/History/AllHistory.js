@@ -4,7 +4,7 @@ import React from "react";
 import HistoryList from "./HistoryList"
 import { getAllClosedService , deleteOneService } from "../api";
 import { getInfo } from '../login/decodeToken';
-
+import Swal from "sweetalert2";
 export default class AllHistory extends React.Component {
 
     constructor(props) {
@@ -35,6 +35,7 @@ export default class AllHistory extends React.Component {
                 const History = this.state.History.filter((History) => {
                     return History._id !== id; 
                 });
+                Swal.fire(`The Service Deleted`,"",'success')
                 this.setState({ History});
             })
             .catch((err) => {

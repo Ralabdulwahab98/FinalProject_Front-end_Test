@@ -3,10 +3,7 @@
     margin: 0;
   }
   
-  html {
-    background: url(../../images/done.png);
-    /* background-image: url(../../images/done.png); */
-  }
+
   
   body {
     background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.6) 100%);
