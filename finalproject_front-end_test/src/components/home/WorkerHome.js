@@ -16,9 +16,6 @@ export default class WorkerHome extends React.Component{
          this.change = this.handleChange.bind(this);
          this.submit = this.handleSubmit.bind(this);
     }
-
-
-
 handleChange = event => {
     this.setState({
         [event.target.name]: event.target.value
@@ -36,7 +33,9 @@ AddPriceToTheSelectedService = (newPrice) => {
 }
 
 handleSubmit = e => {
-    const addNewPrice = {ServicePrice:this.state.ServicePrice,ServicesEmp: this.state.ServicesEmp };
+    const addNewPrice = {
+      ServicePrice:this.state.ServicePrice,
+      ServicesEmp: this.state.ServicesEmp };
     console.log(" addNewPrice ==> ", addNewPrice);
     e.preventDefault();
     this.AddPriceToTheSelectedService(addNewPrice);
@@ -82,3 +81,5 @@ togglehandler(e){
           </div>
         );
 }}
+
+

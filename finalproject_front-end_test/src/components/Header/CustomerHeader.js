@@ -4,6 +4,10 @@ import { getInfo } from "../login/decodeToken";
 import RequestServices from "../RequestServices/RequestServices";
 import { Route, BrowserRouter, Link ,Switch} from "react-router-dom";
 import CustomerHome from "../home/CustomerHome";
+import OnProgressList from "../onProgress/OnProgressList"
+import AllHistory from "../History/AllHistory"
+// import "../../images";
+// import "../../images";
 export default class CustomerHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -44,7 +48,8 @@ export default class CustomerHeader extends React.Component {
                 <input id="btna3" type="button" value={info.Phone} />
                 <img
                   id="img2"
-                  src="https://www.freeiconspng.com/uploads/account-profile-user-icon--icon-search-engine-10.png"
+                  src={require("../../images/profile.png")}
+                  
                   alt=""/>
                 {/* </Link> */}
               </div>
@@ -52,31 +57,31 @@ export default class CustomerHeader extends React.Component {
                 <Link to="/CustomerHeader/RequestServices">
                   <img
                     id="img3"
-                    src="https://cdn3.iconfinder.com/data/icons/care-4/100/Service-512.png"
+                    src={require("../../images/share.png")}
                     alt=""/>
                 </Link>
               </div>
               <div id="divaa4">
-                {/* <Link to="/CustomerHeader/RequestServices"> */}
+                <Link to="/CustomerHeader/ServicesOnProgressList">
                   <img
                     id="img5"
-                    src="https://cdn.iconscout.com/icon/premium/png-256-thumb/technical-support-service-1-911162.png"
+                    src={require("../../images/man.png")}
                     alt=""/>
-                {/* </Link> */}
+                </Link>
               </div>
               <div id="divaa5">
-                {/* <Link to="/CustomerHeader/RequestServices"> */}
+                <Link to="/CustomerHeader/HistoryServices">
                   <img
                     id="img6"
-                    src="https://cdn.iconscout.com/icon/premium/png-256-thumb/history-1772990-1508932.png"
+                    src={require("../../images/history.png")}
                     alt=""/>
-                {/* </Link> */}
+                </Link>
               </div>
               <div id="divaa3">
                 <Link onClick={e => this.logOut(e)}>
                   <img
                     id="img4"
-                    src="https://cdn2.iconfinder.com/data/icons/picons-essentials/57/logout-512.png"
+                    src={require("../../images/logout.png")}
                     alt=""/>
                 </Link>
               </div>
@@ -87,7 +92,8 @@ export default class CustomerHeader extends React.Component {
 
         <Route exact={true} path="/CustomerHeader"component={CustomerHome} ></Route>
         <Route  path="/CustomerHeader/RequestServices"component={RequestServices} ></Route>
-
+        <Route  path="/CustomerHeader/ServicesOnProgressList"component={OnProgressList} ></Route>
+        <Route  path="/CustomerHeader/HistoryServices"component={AllHistory} ></Route>
        
         </Switch>
       </BrowserRouter>
