@@ -5,6 +5,11 @@ import { getInfo } from "../login/decodeToken";
 import ReceivedServices from "../ReceivedServices/ReceivedServices";
 import { Route, BrowserRouter, Link } from "react-router-dom";
 import ListOfServices from "../home/ListOfServices";
+import profile from "../../images/profile.png";
+import share from "../../images/share.png";
+import history1 from"../../images/history.png";
+import hourglass from"../../images/hourglass.png";
+import logout from"../../images/logout.png";
 export default class WorkerHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -48,7 +53,7 @@ export default class WorkerHeader extends React.Component {
                   <input id="btna3" type="button" value={info.Phone} />
                   <img
                     id="img2"
-                    src={require("../../images/profile.png")}
+                    src={profile}
                     alt="" />
                   {/* </Link> */}
                 </div>
@@ -56,7 +61,7 @@ export default class WorkerHeader extends React.Component {
                   <Link to="/CustomerHeader/RequestServices">
                     <img
                       id="img3"
-                      src={require("../../images/share.png")}
+                      src={share}
                       alt="" />
                   </Link>
                 </div>
@@ -64,7 +69,7 @@ export default class WorkerHeader extends React.Component {
                 {/* <Link to="/CustomerHeader/RequestServices"> */}
                   <img
                     id="img5"
-                    src={require("../../images/history.png")}
+                    src={history1}
                     alt=""/>
                 {/* </Link> */}
               </div>
@@ -72,7 +77,7 @@ export default class WorkerHeader extends React.Component {
                 {/* <Link to="/CustomerHeader/RequestServices"> */}
                   <img
                     id="img6"
-                    src={require("../../images/hourglass.png")}
+                    src={hourglass}
                     alt=""/>
                 {/* </Link> */}
               </div>
@@ -80,7 +85,7 @@ export default class WorkerHeader extends React.Component {
                   <Link onClick={e => this.logOut(e)}>
                     <img
                       id="img4"
-                      src={require("../../images/logout.png")}
+                      src={logout}
                       alt="" />
                   </Link>
                 </div>
@@ -88,16 +93,15 @@ export default class WorkerHeader extends React.Component {
             </div>
           </div>
 
-          {/* <Route path={'/CustomerHeader/RequestServices'} component = {RequestServices} /> */}
-          {/* <RequestServices /> */}
+        
         </div>
         <Route
           path="/CustomerHeader/RequestServices"
-          render={() => <ReceivedServices />}
+         component={ReceivedServices}
         />
         <Route
           path="/ListOfServices"
-          render={() => <ListOfServices />}
+          component={ListOfServices}
         />
         {/* </Switch> */}
       </BrowserRouter>
