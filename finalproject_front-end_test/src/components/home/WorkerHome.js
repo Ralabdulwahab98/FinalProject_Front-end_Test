@@ -1,17 +1,16 @@
 import React from "react";
 import { getInfo } from "../login/decodeToken";
-import { AddPriceToTheService } from "../api";
+import { AddPriceToTheService,WaitingService } from "../api";
 import './card.css'; 
 
 export default class WorkerHome extends React.Component{
     constructor(props){
         super(props)
         this.state={
-            toggle: false,
-       
+            toggle: false,    
                 ServicesEmp:getInfo().data._id,
-                ServicePrice: 0
-        
+                ServicePrice: 0,
+
          };
          this.change = this.handleChange.bind(this);
          this.submit = this.handleSubmit.bind(this);
@@ -25,12 +24,13 @@ AddPriceToTheSelectedService = (newPrice) => {
     // Make an axios Call to Add Price To The Selected Service 
     AddPriceToTheService(newPrice,this.props.id)
        .then((res) => {
-           console.log("setState",this.props.id)
+           console.log("you're Price has been added successfully")
        })
        .catch((err) => {
         console.log("API ERROR: ", err);
        })
 }
+
 
 handleSubmit = e => {
     const addNewPrice = {
@@ -71,7 +71,7 @@ togglehandler(e){
                  value={this.state.ServicePrice}
                  type="number"
                  onChange={e => this.change(e)}/> 
-                 <button type="submit"> Add Price to the service</button>
+                 <button type="submit" onClick={this.props.UpdateServiceById(this.props.id)}> Add Price to the service</button>
                 </form>
                 : ''
                   }

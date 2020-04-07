@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import WorkerHome from './WorkerHome'
 import { getInfo } from "../login/decodeToken";
-import {AddPriceToTheService,WorkerService} from '../api'
+import {WorkerService,WaitingService} from '../api'
 export default class ListOfServices extends Component {
 
     constructor(props) {
@@ -31,6 +31,14 @@ export default class ListOfServices extends Component {
        })
    }
 
+   UpdateServiceById = (id) => {
+    WaitingService(id)
+ .then( (res)=>{
+
+ })
+  .catch( (err)=>{
+  })
+}
 
     render(){
         console.log(this.state.Service)
@@ -45,6 +53,7 @@ export default class ListOfServices extends Component {
             ServiceType={Services.ServiceType}
             ServiceState={Services.ServiceState}
             ServiceDescription={Services.ServiceDescription}
+            waiting = {this.UpdateServiceById()}
             key={index} /> 
             );
         })}
