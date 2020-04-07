@@ -51,11 +51,22 @@ export default class Register extends Component {
         AddNewCustomer(Customer)
             .then(response => {
                 // Alert Massge 
-                Swal.fire(`The User ${Customer.FullName} has been added successfully.`,"",'success');
-                        })
+                console.log(response.data.success)
+                if(response.data.success ===false){
+
+                Swal.fire(` ${response.data.message} `,"",'error');
+            }  else if(response.data.success ===true){
+
+                Swal.fire(`The User ${Customer.Username} has been added successfully.`,"",'success');
+            }
+        
+        })
             .catch(error => {
                 console.log("API ERROR: ", error);
-                Swal.fire(`Wrong ${error}`,"",'error');
+                // if(response.data.success === false){
+                    Swal.fire(`Wrong ${error}`,"",'error');
+
+                
             });
     };
 
