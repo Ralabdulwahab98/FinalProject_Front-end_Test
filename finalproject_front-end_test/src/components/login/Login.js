@@ -5,6 +5,7 @@ import { getInfo } from "./decodeToken";
 import { Route, BrowserRouter, Link } from "react-router-dom";
 import "./login.css";
 import Register from './Register'
+import Swal from "sweetalert2"; 
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -53,6 +54,8 @@ class Login extends Component {
       })
       .catch(error => {
         console.log("ERROR: ", error);
+        Swal.fire(` Invalid Username or Password`,"",'error');
+
       });
   }
 

@@ -3,6 +3,7 @@ import './ServiceForm.css';
 import { getInfo } from "../login/decodeToken";
 import { AddNewService } from "../api";
 import icon from '../../images/done.png'
+import Swal from "sweetalert2";
 export default class ServiceForm extends React.Component {
 
     constructor(props) {
@@ -23,7 +24,7 @@ export default class ServiceForm extends React.Component {
         
         AddNewService(info, id)
             .then(response => {
-                console.log(`The Service of customer ${id} has been added successfully.`);
+                Swal.fire(`The Service of customer ${getInfo().data.Username} has been added successfully.`);
             })
 
             .catch(error => {
