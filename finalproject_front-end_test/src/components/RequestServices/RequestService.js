@@ -21,7 +21,8 @@ export default class RequestService extends React.Component{
 // chaneg the Service state to on progress
 progressClick = (e) => {
   e.preventDefault();
-  this.props.ProgressService(this.props.id);
+  // console.log( `chaneg the ${this.props.id} Service progress Click `)
+  this.props.ProgressService(this.props.id ,console.log( `chaneg the ${this.props.id} Service progress Click `) );
 }
 
 
@@ -45,7 +46,7 @@ getWorkerDataByID = (id) => {
           {this.state.toggle === true ? 
           <div className="Price">
             <p> Worker Name: {this.state.workerInfo} </p>
-            <button onClick={this.progressClick}>Accept</button>
+            <button onClick={(e)=>this.progressClick(e)}>Accept</button>
            </div> 
             : ''
           }

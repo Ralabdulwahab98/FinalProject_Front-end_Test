@@ -35,6 +35,8 @@ export default class RequestServices extends React.Component{
       changeStateToProgressService = (id) => {
         // Make an API Call to onprogress a service
         OnProgressService(id)
+        console.log( `Make an API Call to onprogress a service the ${id} `)
+
        const newList = this.state.cus_RequestServices.filter((Service) => {
            return Service._id !== id;
       })

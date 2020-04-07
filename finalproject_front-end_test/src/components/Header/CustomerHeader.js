@@ -6,8 +6,11 @@ import { Route, BrowserRouter, Link ,Switch} from "react-router-dom";
 import CustomerHome from "../home/CustomerHome";
 import OnProgressList from "../onProgress/OnProgressList"
 import AllHistory from "../History/AllHistory"
-// import "../../images";
-// import "../../images";
+import profile from "../../images/profile.png";
+import man from "../../images/man.png";
+import share from "../../images/share.png";
+import history1 from"../../images/history.png";
+import logout from"../../images/logout.png";
 export default class CustomerHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -48,7 +51,7 @@ export default class CustomerHeader extends React.Component {
                 <input id="btna3" type="button" value={info.Phone} />
                 <img
                   id="img2"
-                  src={require("../../images/profile.png")}
+                  src={profile}
                   
                   alt=""/>
                 {/* </Link> */}
@@ -57,7 +60,7 @@ export default class CustomerHeader extends React.Component {
                 <Link to="/CustomerHeader/RequestServices">
                   <img
                     id="img3"
-                    src={require("../../images/share.png")}
+                    src={share}
                     alt=""/>
                 </Link>
               </div>
@@ -65,7 +68,7 @@ export default class CustomerHeader extends React.Component {
                 <Link to="/CustomerHeader/ServicesOnProgressList">
                   <img
                     id="img5"
-                    src={require("../../images/man.png")}
+                    src={man}
                     alt=""/>
                 </Link>
               </div>
@@ -73,18 +76,18 @@ export default class CustomerHeader extends React.Component {
                 <Link to="/CustomerHeader/HistoryServices">
                   <img
                     id="img6"
-                    src={require("../../images/history.png")}
+                    src={history1}
                     alt=""/>
                 </Link>
               </div>
-              {/* <div id="divaa3">
+              <div id="divaa3">
                 <Link onClick={e => this.logOut(e)}>
                   <img
                     id="img4"
-                    src={require("../../images/logout.png")}
+                    src={logout}
                     alt=""/>
                 </Link>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>

@@ -1,10 +1,5 @@
 import React from 'react';
 export default class ProgressList extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-    };
-  }
 
   closeClick = (e) => {
     e.preventDefault();

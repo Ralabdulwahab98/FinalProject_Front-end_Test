@@ -35,7 +35,7 @@ export const userInfo = (id) =>{
 export const deleteOneService = (id) => {
   return axios({
     method: 'delete',
-    url: apiURL + `/DeleteTicket/${id}`,
+    url: apiURL + `/DeleteService/${id}`,
   })
 }  
 
