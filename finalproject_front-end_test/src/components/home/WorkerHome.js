@@ -3,6 +3,7 @@ import { getInfo } from "../login/decodeToken";
 import { AddPriceToTheService, WaitingService } from "../api";
 import './card.css';
 import './formstyle.scss'
+import Swal from "sweetalert2";
 
 export default class WorkerHome extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ export default class WorkerHome extends React.Component {
     AddPriceToTheService(newPrice, this.props.id)
       .then((res) => {
         console.log("you're Price has been added successfully")
+        Swal.fire(`you're Price has been added successfully`,"",'success');
       })
       .catch((err) => {
         console.log("API ERROR: ", err);
