@@ -13,19 +13,23 @@ export default class ListOfServices extends Component {
     }
 
     
-        componentDidMount(){
-            // Mack API call to get all service that match to worker job
-            let ID = getInfo().data._id
-            WorkerService(ID)
-
-           .then( (repose)=>{
-               console.log('repose.data' , repose.data )          
-               this.setState({Service:repose.data});    
-               })                         
-           .catch( (error)=>{
-               console.log(' API error: ',error );
+    componentDidMount(){
+        // Mack API call to get all service that match to worker job
+        let ID = getInfo().data._id
+        WorkerService(ID)
+       .then( (repose)=>{
+           console.log('repose.data' , repose.data )
+           const AllServices = repose.data.filter((Services) => {
+               if(Services.ServiceState === 'Open'){
+                   return repose.data
+               }
            })
-       }
+             this.setState({Service:AllServices});
+       })
+       .catch( (error)=>{
+           console.log(' API error: ',error );
+       })
+   }
 
 
     render(){
