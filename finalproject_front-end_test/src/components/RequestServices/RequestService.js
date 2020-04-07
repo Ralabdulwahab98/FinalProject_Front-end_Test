@@ -14,7 +14,8 @@ export default class RequestService extends React.Component{
     e.preventDefault();
     console.log("Service Worker info..")
         this.setState({ toggle:! this.state.toggle }); 
-    
+        console.log("this.props.AllPrice.ServicesEmp" ,this.props.AllPrice)
+        this.getWorkerDataByID(this.props.workerId.ServicesEmp)
 }
 
 // chaneg the Service state to on progress
@@ -34,17 +35,16 @@ getWorkerDataByID = (id) => {
         .catch( (error)=>{
             console.log(' API error: ',error );
         })
-
 }
 //price map 
   render(){
-    const AllPrice = this.props.AllPrice.map((Prices)=>{
+    const Price = this.props.AllPrice.map((Prices)=>{
       return(
         <>
-          <button onClick={this.ServicesClicked} >{Prices.ServicePrice}</button>
+          <button onClick={this.ServicesClicked} >Price: {Prices.ServicePrice}</button>
           {this.state.toggle === true ? 
-          <div className="movie_social">
-            <p> Service Worker info.. </p>
+          <div className="Price">
+            <p> Worker Name: {this.state.workerInfo} </p>
             <button onClick={this.progressClick}>Accept</button>
            </div> 
             : ''
@@ -63,7 +63,7 @@ getWorkerDataByID = (id) => {
                     </div>
                     <div className="movie_desc">
                       <p className="description"> {this.props.ServiceDescription} </p>
-                      {AllPrice}
+                      {Price}
                     </div>
                   </div>
                   <div className="blur_back bright_back"></div>

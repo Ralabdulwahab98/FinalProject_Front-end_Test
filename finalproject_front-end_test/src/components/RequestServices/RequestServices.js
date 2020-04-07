@@ -54,6 +54,7 @@ export default class RequestServices extends React.Component{
           ServiceState={Services.ServiceState}
           ServiceDescription={Services.ServiceDescription}
           AllPrice={Services.AllPrice}
+          workerId={Services.AllPrice[0]}
           ProgressService={this.changeStateToProgressService}
           key={index} /> 
           );
